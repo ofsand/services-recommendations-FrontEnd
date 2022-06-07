@@ -28,6 +28,8 @@ import {SearchBarComponent} from "./search-bar/search-bar.component";
 import {DropDownFilterComponent} from "./search-bar/drop-down-filter/drop-down-filter.component";
 import {RadioButtonsFilterComponent} from "./search-bar/radio-buttons-filter/radio-buttons-filter.component";
 import {SearchComponent} from "./search-bar/search/search.component";
+import { ServiceTradePersonItemComponent } from './home/service-trade-person-item/service-trade-person-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -56,12 +58,14 @@ import {SearchComponent} from "./search-bar/search/search.component";
     ServicesListComponent,
     AddServiceComponent,
     EditServiceComponent,
-    ServiceItemComponent
+    ServiceItemComponent,
+    ServiceTradePersonItemComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
