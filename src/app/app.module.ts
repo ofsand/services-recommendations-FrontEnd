@@ -28,7 +28,7 @@ import {SearchBarComponent} from "./search-bar/search-bar.component";
 import {DropDownFilterComponent} from "./search-bar/drop-down-filter/drop-down-filter.component";
 import {RadioButtonsFilterComponent} from "./search-bar/radio-buttons-filter/radio-buttons-filter.component";
 import {SearchComponent} from "./search-bar/search/search.component";
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,8 @@ import {SearchComponent} from "./search-bar/search/search.component";
   imports: [
     BrowserModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
