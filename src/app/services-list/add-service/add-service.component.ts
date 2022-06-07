@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-service',
@@ -8,7 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AddServiceComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) {}
+  //constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
   }

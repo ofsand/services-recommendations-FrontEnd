@@ -14,8 +14,6 @@ import { RecommendationItemComponent } from './recommendations/recommendation-it
 import { AddRecommendationComponent } from './recommendations/add-recommendation/add-recommendation.component';
 import { EditRecommendationComponent } from './recommendations/edit-recommendation/edit-recommendation.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { AddCategoryComponent } from './categories/add-category/add-category.component';
-import { CategoryItemComponent } from './categories/category-item/category-item.component';
 import { ServicesListComponent } from './services-list/services-list.component';
 import { AddServiceComponent } from './services-list/add-service/add-service.component';
 import { EditServiceComponent } from './services-list/edit-service/edit-service.component';
@@ -28,7 +26,9 @@ import {SearchBarComponent} from "./search-bar/search-bar.component";
 import {DropDownFilterComponent} from "./search-bar/drop-down-filter/drop-down-filter.component";
 import {RadioButtonsFilterComponent} from "./search-bar/radio-buttons-filter/radio-buttons-filter.component";
 import {SearchComponent} from "./search-bar/search/search.component";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -51,8 +51,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddRecommendationComponent,
     EditRecommendationComponent,
     CategoriesComponent,
-    AddCategoryComponent,
-    CategoryItemComponent,
     ServicesListComponent,
     AddServiceComponent,
     EditServiceComponent,
@@ -62,7 +60,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     SharedModule,
     AppRoutingModule,
-    NgbModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
