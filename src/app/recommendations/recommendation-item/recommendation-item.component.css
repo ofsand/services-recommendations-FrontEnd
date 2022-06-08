@@ -1,0 +1,7 @@
+.email-name {
+    display: flex;
+    justify-content: space-evenly;
+}
+.email-name > p {
+    padding: 0 10px 0 10px;
+}
