@@ -14,7 +14,7 @@ export class SearchBarComponent implements OnInit {
 
   @Input() searchword:string='';
   categories!: Category[];
-
+ idCategorySelected!:number;
 
   constructor(private categoryService: CategoryService,private stradesPerson:ServiceTradePersonService) { }
 
@@ -28,24 +28,32 @@ export class SearchBarComponent implements OnInit {
 
   onChangeCategory(event: any) {
     console.log(event.target.value)
+    this.idCategorySelected=event.target.value;
+    if(this.idCategorySelected==0){
+      this.stradesPerson.getAllServiceTradePerson().subscribe((data:any)=>{
+        this.stradesPerson.setServiceList(data)
+      })
+    }else{
     this.stradesPerson.findByCategory(event.target.value).subscribe((data:any) => {
       this.stradesPerson.setServiceList(data)
     })
   }
+  }
 
   changeList(event: any) {
+    
     if(event.target.value==1){
       this.stradesPerson.getAllServiceTradePerson().subscribe((data:any)=>{
         this.stradesPerson.setServiceList(data)
       })
     }
     else if(event.target.value==2){
-      this.stradesPerson.getAllService().subscribe((data:any)=>{
+      this.stradesPerson.getAllService(this.idCategorySelected).subscribe((data:any)=>{
     this.stradesPerson.setServiceList(data)
       })
     }
     else if(event.target.value==3){
-      this.stradesPerson.getAllTradePerson().subscribe((data:any)=>{
+      this.stradesPerson.getAllTradePerson(this.idCategorySelected).subscribe((data:any)=>{
     this.stradesPerson.setServiceList(data)
       })
     }

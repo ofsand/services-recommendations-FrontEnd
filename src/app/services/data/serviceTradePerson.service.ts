@@ -27,11 +27,11 @@ export class ServiceTradePersonService {
   getAllServiceTradePerson() {
     return this.http.get<ServicesTradesPerson[]>('http://localhost:8080/api/services-tradesPerson')
   }
-  getAllTradePerson() {
-    return this.http.get<ServicesTradesPerson[]>('http://localhost:8080/api/tradesPerson')
+  getAllTradePerson(idCategory:number) {
+    return this.http.get<ServicesTradesPerson[]>(`http://localhost:8080/api/tradesPerson/${idCategory}`)
   }
-  getAllService() {
-    return this.http.get<ServicesTradesPerson[]>('http://localhost:8080/api/services')
+  getAllService(idCategory:number) {
+    return this.http.get<ServicesTradesPerson[]>(`http://localhost:8080/api/services/${idCategory}`)
   }
   findByCategory(idCategory: number) {
     return this.http.get(`http://localhost:8080/api/category/${idCategory}/services-tradesPerson`, {
