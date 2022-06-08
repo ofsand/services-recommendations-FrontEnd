@@ -26,9 +26,8 @@ import {SearchBarComponent} from "./search-bar/search-bar.component";
 import {DropDownFilterComponent} from "./search-bar/drop-down-filter/drop-down-filter.component";
 import {RadioButtonsFilterComponent} from "./search-bar/radio-buttons-filter/radio-buttons-filter.component";
 import {SearchComponent} from "./search-bar/search/search.component";
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 
 @NgModule({
   declarations: [
@@ -56,14 +55,21 @@ import { HttpClientModule } from '@angular/common/http';
     EditServiceComponent,
     ServiceItemComponent
   ],
-  imports: [
-    BrowserModule,
-    SharedModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    imports: [
+        BrowserModule,
+        SharedModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule
+    ],
+  providers: [
+    /*
+    {
+      provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorJwtAuthService, multi: true
+    }
+     */
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

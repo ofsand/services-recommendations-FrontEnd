@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Recommendation} from "../../models/Recommendation.model";
+import {RecommendationDataService} from "../../services/data/recommendation-data.service";
 
 @Component({
   selector: 'app-recommendation-item',
@@ -7,9 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecommendationItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() recommendation: Recommendation;
+  @Input() serviceTradesPersonId: number;
+  // @Output() someEvent = new EventEmitter<string>();
+
+  constructor(
+    private recommendationData: RecommendationDataService
+  ) {
+  }
 
   ngOnInit(): void {
+  }
+
+  approve(recommendationId: number) {
+    this.recommendationData.approve(recommendationId).subscribe(
+      success => {
+          console.log(success);
+      }, error => {
+          console.log(error);
+      }
+    );
+  }
+
+  decline(recommendationId: number) {
+    this.recommendationData.decline(recommendationId).subscribe(
+      success => {
+        console.log(success);
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 
 }

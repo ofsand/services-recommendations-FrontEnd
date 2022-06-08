@@ -1,1 +1,80 @@
-<p>recommendations works!</p>
+
+<button type="button" class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Recommendation</button>
+
+
+<!-- RECOMMENDATION ITEM -->
+<app-recommendation-item
+  *ngFor="let recommendationElement of recommendations"
+  [recommendation]="recommendationElement"
+  [serviceTradesPersonId] = "serviceTradesPersonId"
+  >
+</app-recommendation-item>
+
+
+
+<!-- Modal for adding a new recommendation -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form (ngSubmit)="addRecommendation()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a recommendation for this ser</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="recipient-name" class="col-form-label">Email :</label>
+              <input type="text"
+                     class="form-control"
+                     id="recipient-name"
+                     name="userEmail"
+                     required="required"
+                     [(ngModel)]="recommendation.user.email"
+              >
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="message-text" class="col-form-label">User Name :</label>
+              <input type="text"
+                     class="form-control"
+                     id="message-text"
+                     name="Username"
+                     required="required"
+                     [(ngModel)]="recommendation.user.username"
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="rec-number-stars" class="col-form-label">Number of stars:</label>
+              <input type="text"
+                     class="form-control"
+                     id="rec-number-stars"
+                     name="numberStars"
+                     required="required"
+                     [(ngModel)]="recommendation.numberStars">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="rec-comment" class="col-form-label">Comment :</label>
+              <textarea
+                class="form-control"
+                id="rec-comment"
+                name="comment"
+                required="required"
+                [(ngModel)]="recommendation.comment"
+              ></textarea>
+            </div>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
