@@ -1,5 +1,5 @@
 <div class="filters">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-4 row">
             <div class="col-8">
                 <input type="text" class="form-control" id="keywordService" placeholder="Search">
@@ -8,15 +8,14 @@
                 <button class="btn btn-primary h-100">Search</button>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-4">
             <select class="form-select" id="filterscategory"  (change)="onChangeCategory($event)">
                 <option selected>Filter by category</option>
-                <!--<option *ngFor="let category of categories" [value]="category.idCategory">
+               <option *ngFor="let category of categories" [value]="category.idCategory">
                     {{category.name}}
-                </option>-->
+                </option>
             </select>
         </div>
-        
         <div class="col-4 row align-items-center"> 
             <div class="col-auto">
                 <div class="form-check">
