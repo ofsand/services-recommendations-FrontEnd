@@ -1,1 +1,56 @@
-<p>header works!</p>
+<nav class="navbar">
+    <div class="container-fluid justify-content-start">
+        <a 
+            class="text-white me-3"
+            data-bs-toggle="offcanvas" 
+            href="#offcanvasExample" 
+            role="button" 
+            aria-controls="offcanvasExample">
+            <i class="bi bi-list"></i>
+        </a>
+        <a class="navbar-brand text-white fw-bold" routerLink="/">PROservices</a>
+        <div class="float-left">
+            <a 
+            class="text-white me-3"
+            data-bs-toggle="offcanvas" 
+            role="button" 
+            aria-controls="offcanvasExample">
+            <i class="bi bi-list "></i>
+        </a>
+        </div>
+         
+    </div>
+
+</nav>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">PROservices</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-group">
+            <li 
+                class="list-group-item" 
+                routerLink="/categories" 
+                style="cursor: pointer;"
+                routerLinkActive="active">
+                Categories
+            </li>
+            <li  
+                class="list-group-item" 
+                routerLink="/recommendations" 
+                style="cursor: pointer;"
+                routerLinkActive="active">
+                Recommendations
+            </li>
+            <li      
+                class="list-group-item" 
+                routerLink="/services" 
+                style="cursor: pointer;"
+                routerLinkActive="active">
+                Services & Trades Person
+            </li>
+        </ul>
+    </div>
+</div>

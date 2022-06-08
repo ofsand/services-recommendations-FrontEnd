@@ -1,1 +1,5 @@
-<p>drop-down-filter works!</p>
+<select class="form-select"  (change)="onChangeCategory($event)">
+    <option *ngFor="let category of categories" [value]="category.idCategory">
+     {{category.name}}
+    </option>
+</select>

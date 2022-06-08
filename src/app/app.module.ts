@@ -14,8 +14,6 @@ import { RecommendationItemComponent } from './recommendations/recommendation-it
 import { AddRecommendationComponent } from './recommendations/add-recommendation/add-recommendation.component';
 import { EditRecommendationComponent } from './recommendations/edit-recommendation/edit-recommendation.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { AddCategoryComponent } from './categories/add-category/add-category.component';
-import { CategoryItemComponent } from './categories/category-item/category-item.component';
 import { ServicesListComponent } from './services-list/services-list.component';
 import { AddServiceComponent } from './services-list/add-service/add-service.component';
 import { EditServiceComponent } from './services-list/edit-service/edit-service.component';
@@ -30,7 +28,9 @@ import {RadioButtonsFilterComponent} from "./search-bar/radio-buttons-filter/rad
 import {SearchComponent} from "./search-bar/search/search.component";
 import { ServiceTradePersonItemComponent } from './home/service-trade-person-item/service-trade-person-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModel } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -53,8 +53,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddRecommendationComponent,
     EditRecommendationComponent,
     CategoriesComponent,
-    AddCategoryComponent,
-    CategoryItemComponent,
     ServicesListComponent,
     AddServiceComponent,
     EditServiceComponent,
@@ -65,7 +63,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     SharedModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

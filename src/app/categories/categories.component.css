@@ -1,0 +1,15 @@
+input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+input:focus {
+    box-shadow: none;
+}
+table {
+    border-radius: 10px 10px 0 0;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #F8F7FE !important;
+}

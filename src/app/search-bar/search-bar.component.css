@@ -1,0 +1,9 @@
+.barSearch{
+    width: 100%;
+    height: calc(60vh - 65px);
+    background-size: cover;
+}
+
+.card-color{
+    background-color: #d8b3de;
+}

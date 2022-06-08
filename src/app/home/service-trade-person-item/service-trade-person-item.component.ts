@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ServicesTradesPerson } from 'src/app/models/servicestradesperson.model';
+import { ServiceTradePersonService } from 'src/app/services/data/serviceTradePerson.service';
 import { IService } from './IService';
+
 
 @Component({
   selector: 'app-service-trade-person-item',
@@ -7,25 +10,20 @@ import { IService } from './IService';
   styleUrls: ['./service-trade-person-item.component.css']
 })
 export class ServiceTradePersonItemComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  services:ServicesTradesPerson[]=[];
   @Input() servicename:string='New Service';
   @Input() shortDescription:string='this is my new service ';
   
+  constructor(private service: ServiceTradePersonService) { }
 
-  services:IService[]=[
-    {"serviceName":"service 1",
-    "serviceDescription":"description1"},
-    {"serviceName":"service 2",
-    "serviceDescription":"description2"},
-    {"serviceName":"service 3",
-    "serviceDescription":"description3"},
-    {"serviceName":"service 4",
-    "serviceDescription":"description4"},
-    {"serviceName":"service 5",
-    "serviceDescription":"description5"},
-  ];
+  ngOnInit(): void {
+    this.service.getAllServiceTradePerson().subscribe(
+      (data) => {
+        this.services =data;
+      }
+    )
+  }
+ 
+
+ 
 }
