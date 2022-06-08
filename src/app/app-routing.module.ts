@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'categories', component: CategoriesComponent},
   {path: 'recommendations', component: RecommendationsComponent},
   {path: 'services', component: AddServiceComponent}
+  
 ];
 
 @NgModule({

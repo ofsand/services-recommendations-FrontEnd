@@ -1,0 +1,15 @@
+.bg-landing{
+    background-image: url('MicrosoftTeams-image.png');
+    width: 100%;
+    height: calc(90vh - 65px);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.proservices{
+    color:blue;
+}
+
+#landing-expresion{
+    size:200px;
+}

@@ -29,6 +29,9 @@ import {SearchComponent} from "./search-bar/search/search.component";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ServiceTradePersonItemComponent } from './home/service-trade-person-item/service-trade-person-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModel } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ServicesListComponent,
     AddServiceComponent,
     EditServiceComponent,
-    ServiceItemComponent
+    ServiceItemComponent,
+    ServiceTradePersonItemComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
-    
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

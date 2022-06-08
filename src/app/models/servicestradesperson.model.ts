@@ -4,5 +4,6 @@ export interface ServicesTradesPerson {
     title: string,
     email: string,
     phoneNumber: string,
+    description:string,
     location: string
 }
