@@ -1,0 +1,101 @@
+<div class="padTemplate">
+<ng-template #contentService let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Add service </h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="serviceForm" (ngSubmit)="onSubmitToAddService()">
+            <div class="row">
+                <div class="col-6">
+                    <input id="email" type="email" class="form-control" formControlName="email" placeholder="Email" />
+                </div>
+                <div class="col-6">
+                    <input id="title" type="text" class="form-control" formControlName="title" placeholder="Title"/>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-xs-3 pad" >
+                    <input id="location" class="form-control" type="text" formControlName="location" placeholder="Location" />
+                </div>
+                <div class="col-xs-4 pad">
+                    <input id="phone" class="form-control" type="text" formControlName="phone" placeholder="Phone Number"/>
+                </div>
+                <div class="col-xs-4 pad">
+                    <select id="category" class="form-control" type="text" formControlName="category" placeholder="Ccategory">
+                        <option value="">--Please choose a category --</option>
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer" >
+                <button  type="submit" style="display: block; margin: 0 auto;" class="btn btn-primary btn-sm button"  [disabled]="!serviceForm.valid">Add</button>
+            </div>
+          </form>
+    </div>
+  </ng-template>
+</div>
+
+  <ng-template #contentTradeperson let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Add tradePerson </h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="persontradeForm" (ngSubmit)="onSubmitToAddPersontrade()">
+              <div class="row">
+                  <div class="col-6">
+                      <input id="email" type="email" class="form-control" formControlName="email" placeholder="Email" />
+                  </div>
+                  <div class="col-6">
+                      <input id="title" type="text" class="form-control" formControlName="title" placeholder="Title"/>
+                  </div>
+              </div>
+              <div class="row" >
+                  <div class="col-6 pad" >
+                      <input id="firstname" class="form-control" type="text" formControlName="firstname" placeholder="Firstname" />
+                  </div>
+                  <div class="col-6 pad">
+                      <input id="lastname" class="form-control" type="text" formControlName="lastname" placeholder="Lastname"/>
+                  </div>
+              </div>
+            <div class="row" >
+                <div class="col-6 pad" >
+                    <input id="domain" class="form-control" type="text" formControlName="domain" placeholder="Domain" />
+                </div>
+                <div class="col-6 pad">
+                    <input id="speciality" class="form-control" type="text" formControlName="speciality" placeholder="Speciality"/>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6 pad">
+                    <input id="phone" class="form-control" type="text" formControlName="phone" placeholder="Phone Number"/>
+                </div>
+                <div class="col-6 pad">
+                    <input id="adress" class="form-control" type="text" formControlName="adress" placeholder="Adress"/>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-xs-3 pad" >
+                    <input id="location" class="form-control" type="text" formControlName="location" placeholder="Location" />
+                </div>
+                <div class="col-xs-4 pad">
+                    <select id="category" class="form-control" type="text" formControlName="category" placeholder="Ccategory">
+                        <option value="">--Please choose a category --</option>
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                    </select>
+                </div>
+            </div>
+              <div class="modal-footer" >
+                  <button  type="submit" style="display: block; margin: 0 auto;" class="btn btn-primary btn-sm button"  [disabled]="!persontradeForm.valid">Add</button>
+              </div>
+            </form>
+      </div>
+  </ng-template>
+
+<div class="padButton">
+    <button class="btn btn-outline-primary mb-2 me-2 button" (click)="addService(contentService)">Add a service</button>
+    <button class="btn btn-outline-primary mb-2 me-2 button" (click)="addTradePerson(contentTradeperson)">Add a tradePerson</button>
+</div>

@@ -28,7 +28,7 @@ import {RadioButtonsFilterComponent} from "./search-bar/radio-buttons-filter/rad
 import {SearchComponent} from "./search-bar/search/search.component";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,9 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
