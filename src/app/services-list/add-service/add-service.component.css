@@ -33,4 +33,6 @@ input:focus {
     cursor: pointer;
   }
 
-
+.colr{
+    background-color: #6200EE !important ; 
+}

@@ -22,10 +22,12 @@
                     <input id="phone" class="form-control" type="text" formControlName="phone" placeholder="Phone Number"/>
                 </div>
                 <div class="col-xs-4 pad">
-                    <select id="category" class="form-control" type="text" formControlName="category" placeholder="Ccategory">
-                        <option value="">--Please choose a category --</option>
-                        <option value="category1">Category 1</option>
-                        <option value="category2">Category 2</option>
+                    <select id="category" class="form-control" type="text"  placeholder="Category" (change)="getCategory($event)">
+                        <!-- <select id="category" class="form-control" type="text" formControlName="category" placeholder="Category" (change)="getCategory($event)"> -->
+                        <option selected>--Please choose a category --</option>
+                        <option *ngFor="let category of categories" [value]="category.idCategory">
+                            {{category.name}}
+                        </option>
                     </select>
                 </div>
             </div>
@@ -39,11 +41,11 @@
 
   <ng-template #contentTradeperson let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Add tradePerson </h4>
+        <h4 class="modal-title">Add PersonTrade </h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
       </div>
       <div class="modal-body">
-          <form [formGroup]="persontradeForm" (ngSubmit)="onSubmitToAddPersontrade()">
+          <form [formGroup]="tradepersonForm" (ngSubmit)="onSubmitToAddTradeperson()">
               <div class="row">
                   <div class="col-6">
                       <input id="email" type="email" class="form-control" formControlName="email" placeholder="Email" />
@@ -81,15 +83,16 @@
                     <input id="location" class="form-control" type="text" formControlName="location" placeholder="Location" />
                 </div>
                 <div class="col-xs-4 pad">
-                    <select id="category" class="form-control" type="text" formControlName="category" placeholder="Ccategory">
-                        <option value="">--Please choose a category --</option>
-                        <option value="category1">Category 1</option>
-                        <option value="category2">Category 2</option>
+                    <select id="category" class="form-control" type="text"  placeholder="Category">
+                        <option selected>--Please choose a category --</option>
+                        <option *ngFor="let category of categories" [value]="category.idCategory">
+                            {{category.name}}
+                        </option>
                     </select>
                 </div>
             </div>
               <div class="modal-footer" >
-                  <button  type="submit" style="display: block; margin: 0 auto;" class="btn btn-primary btn-sm button"  [disabled]="!persontradeForm.valid">Add</button>
+                  <button  type="submit" style="display: block; margin: 0 auto;" class="btn btn-primary btn-sm button"  [disabled]="!tradepersonForm.valid">Add</button>
               </div>
             </form>
       </div>
@@ -98,4 +101,27 @@
 <div class="padButton">
     <button class="btn btn-outline-primary mb-2 me-2 button" (click)="addService(contentService)">Add a service</button>
     <button class="btn btn-outline-primary mb-2 me-2 button" (click)="addTradePerson(contentTradeperson)">Add a tradePerson</button>
+</div>
+
+<!-- card of a service or -->
+<div class="container padTemplate" >
+    <div class="col-md-8    offset-md-2">
+        <div class="card text-start">
+            <div *ngFor="let servicetradeperson of servicestradesperson">
+            <div class="card-body" >
+              <h5 class="card-title">{{servicetradeperson.title}}</h5>
+              <!-- <h5 class="card-title">Title</h5> -->
+              <p class="card-text">{{servicetradeperson.Description}}</p>
+              <p class="card-text">Description Description Description Description Description</p>
+            </div>
+            <div class="card-footer text-muted  bg-info colr" >
+                <div class="row text-white" >
+                    <span class="col-md-4" id = "email"><i class="bi bi-envelope"></i> {{servicetradeperson.email}}</span>
+                    <span class="col-md-4" id ><i class="bi bi-phone"></i> {{servicetradeperson.phoneNumber}}</span>
+                    <span class="col-md-4"><i class="bi bi-geo-alt"></i> {{servicetradeperson.location}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
