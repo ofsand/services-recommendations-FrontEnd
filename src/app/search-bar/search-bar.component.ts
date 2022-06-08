@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ServicesTradesPerson } from '../models/servicestradesperson.model';
 
 @Component({
   selector: 'app-search-bar',
@@ -18,6 +19,10 @@ private input:string='';
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onChangeCategory(event: any) {
+    
   }
 
 }

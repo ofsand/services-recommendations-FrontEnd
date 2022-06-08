@@ -7,3 +7,22 @@
 .card-color{
     background-color: #d8b3de;
 }
+
+input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    background-color: #ECEFF1;
+}
+input:focus {
+    box-shadow: none;
+}
+
+.filters {
+    padding: 30px;
+    background-color: #CACAFB;
+}
+.btn-primary {
+    background-color: #6200EE;
+    padding: 2px 16px;
+}
