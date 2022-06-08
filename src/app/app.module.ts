@@ -26,12 +26,11 @@ import {SearchBarComponent} from "./search-bar/search-bar.component";
 import {DropDownFilterComponent} from "./search-bar/drop-down-filter/drop-down-filter.component";
 import {RadioButtonsFilterComponent} from "./search-bar/radio-buttons-filter/radio-buttons-filter.component";
 import {SearchComponent} from "./search-bar/search/search.component";
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceTradePersonItemComponent } from './home/service-trade-person-item/service-trade-person-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModel } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -68,8 +67,15 @@ import { NgModel } from '@angular/forms';
     HttpClientModule,
     NgbModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    /*
+    {
+      provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorJwtAuthService, multi: true
+    }
+     */
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
