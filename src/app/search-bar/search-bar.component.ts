@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ServiceTradePersonItemComponent } from '../home/service-trade-person-item/service-trade-person-item.component';
 import { Category } from '../models/category.model';
 import { ServicesTradesPerson } from '../models/servicestradesperson.model';
 import { CategoryService } from '../services/data/category.service';
+import { ServiceTradePersonService } from '../services/data/serviceTradePerson.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -15,11 +17,12 @@ export class SearchBarComponent implements OnInit {
   
 private input:string='';
   @Output() searchcriteria = new EventEmitter<String>();
+  
   searchThis() {
       this.searchcriteria.emit(this.searchword)
   }
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService,private stradesPerson:ServiceTradePersonService) { }
 
   ngOnInit(): void {
     this.categoryService.getAllCategories().subscribe(data => {
@@ -30,8 +33,8 @@ private input:string='';
 
   onChangeCategory(event: any) {
     console.log(event.target.value)
-    this.categoryService.getAllCategories().subscribe(data => {
-      this.categories = data
+    this.stradesPerson.findByCategory(event.target.value).subscribe((data:any) => {
+      this.stradesPerson.setServiceTradePerso(data)
     })
   }
 

@@ -10,9 +10,11 @@ import { IService } from './IService';
   styleUrls: ['./service-trade-person-item.component.css']
 })
 export class ServiceTradePersonItemComponent implements OnInit {
+  
   services:ServicesTradesPerson[]=[];
-  @Input() servicename:string='New Service';
-  @Input() shortDescription:string='this is my new service ';
+
+ 
+  
   
   constructor(private service: ServiceTradePersonService) { }
 
