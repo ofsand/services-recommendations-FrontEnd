@@ -1,0 +1,54 @@
+<div class="filters">
+    <div class="row">
+        <div class="col-4 row">
+            <div class="col-8">
+                <input type="text" class="form-control" id="keywordService" placeholder="Search">
+            </div>
+            <div class="col-4">
+                <button class="btn btn-primary h-100">Search</button>
+            </div>
+        </div>
+        <div class="col-3">
+            <select class="form-select" id="filterscategory"  (change)="onChangeCategory($event)">
+                <option selected>Filter by category</option>
+                <option *ngFor="let category of categories" [value]="category.idCategory">
+                    {{category.name}}
+                </option>
+            </select>
+        </div>
+        
+        <div class="col-4 row align-items-center"> 
+            <div class="col-auto">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="typeService" id="all">
+                    <label class="form-check-label" for="all">
+                        All
+                    </label>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="typeService" id="services">
+                    <label class="form-check-label" for="services">
+                        Services
+                    </label>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="typeService" id="tradesPerson">
+                    <label class="form-check-label" for="all">
+                        Trades Person
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+<div class="row">
+    <div class="col-md-4" *ngFor="let services of servicesTradesPerson">
+        {{services.email }}
+    </div>
+</div>

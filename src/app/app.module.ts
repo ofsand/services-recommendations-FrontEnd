@@ -28,6 +28,7 @@ import {RadioButtonsFilterComponent} from "./search-bar/radio-buttons-filter/rad
 import {SearchComponent} from "./search-bar/search/search.component";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FiltersComponent } from './filters/filters.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { HttpClientModule } from '@angular/common/http';
     ServicesListComponent,
     AddServiceComponent,
     EditServiceComponent,
-    ServiceItemComponent
+    ServiceItemComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,
