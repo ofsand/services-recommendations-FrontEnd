@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { ServicesTradesPerson } from 'src/app/models/servicestradesperson.model';
+import { ServicesListComponent } from 'src/app/services-list/services-list.component';
 import { ServiceTradePersonService } from 'src/app/services/data/serviceTradePerson.service';
 import { IService } from './IService';
 
@@ -10,20 +12,22 @@ import { IService } from './IService';
   styleUrls: ['./service-trade-person-item.component.css']
 })
 export class ServiceTradePersonItemComponent implements OnInit {
-  
-  services:ServicesTradesPerson[]=[];
-
+  services!: ServicesTradesPerson[];
  
   
-  
+ 
   constructor(private service: ServiceTradePersonService) { }
 
   ngOnInit(): void {
-    this.service.getAllServiceTradePerson().subscribe(
-      (data) => {
+     this.service.getAllServiceTradePerson().subscribe(
+     (data) => {
         this.services =data;
-      }
-    )
+    }
+  )
+
+ this.service.changedListOfSTD$.subscribe((value) => {
+  this.services = value;
+});
   }
  
 

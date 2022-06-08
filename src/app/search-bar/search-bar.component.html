@@ -1,5 +1,5 @@
 <div class="filters">
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-4 row">
             <div class="col-8">
                 <input type="text" class="form-control" id="keywordService" placeholder="Search">
@@ -11,15 +11,16 @@
         <div class="col-4">
             <select class="form-select" id="filterscategory"  (change)="onChangeCategory($event)">
                 <option selected>Filter by category</option>
-               <option *ngFor="let category of categories" [value]="category.idCategory">
+                <option *ngFor="let category of categories" [value]="category.idCategory">
                     {{category.name}}
-                </option>
+                </option>-->
             </select>
         </div>
+        
         <div class="col-4 row align-items-center"> 
             <div class="col-auto">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="typeService" id="all">
+                    <input class="form-check-input" type="radio" [value]="1" (change)="changeList($event)" name="typeService" id="all">
                     <label class="form-check-label" for="all">
                         All
                     </label>
@@ -27,7 +28,7 @@
             </div>
             <div class="col-auto">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="typeService" id="services">
+                    <input class="form-check-input" type="radio"  [value]="2" (change)="changeList($event)" name="typeService" id="services" >
                     <label class="form-check-label" for="services">
                         Services
                     </label>
@@ -35,7 +36,7 @@
             </div>
             <div class="col-auto">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="typeService" id="tradesPerson">
+                    <input class="form-check-input" type="radio"  [value]="3" (change)="changeList($event)" name="typeService" id="tradesPerson">
                     <label class="form-check-label" for="all">
                         Trades Person
                     </label>

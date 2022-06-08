@@ -14,13 +14,7 @@ export class SearchBarComponent implements OnInit {
 
   @Input() searchword:string='';
   categories!: Category[];
-  
-private input:string='';
-  @Output() searchcriteria = new EventEmitter<String>();
-  
-  searchThis() {
-      this.searchcriteria.emit(this.searchword)
-  }
+
 
   constructor(private categoryService: CategoryService,private stradesPerson:ServiceTradePersonService) { }
 
@@ -31,11 +25,29 @@ private input:string='';
     
   }
 
+
   onChangeCategory(event: any) {
     console.log(event.target.value)
     this.stradesPerson.findByCategory(event.target.value).subscribe((data:any) => {
-      this.stradesPerson.setServiceTradePerso(data)
+      this.stradesPerson.setServiceList(data)
     })
   }
 
+  changeList(event: any) {
+    if(event.target.value==1){
+      this.stradesPerson.getAllServiceTradePerson().subscribe((data:any)=>{
+        this.stradesPerson.setServiceList(data)
+      })
+    }
+    else if(event.target.value==2){
+      this.stradesPerson.getAllService().subscribe((data:any)=>{
+    this.stradesPerson.setServiceList(data)
+      })
+    }
+    else if(event.target.value==3){
+      this.stradesPerson.getAllTradePerson().subscribe((data:any)=>{
+    this.stradesPerson.setServiceList(data)
+      })
+    }
+  }
 }
