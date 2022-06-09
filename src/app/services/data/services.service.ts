@@ -8,7 +8,7 @@ import { ITradePerson } from 'src/app/models/tradeperson';
   providedIn: 'root'
 })
 export class ServicesService {
-  private _tokenTest = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ6YWthcmlhIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwiZXhwIjoxNjU3MjkzNzkxfQ.Vabglh6fpu8oAmaxJJLc6MeS_HHJXHjEYACyvCTZzXA"
+  private _tokenTest = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9sb2dpbiIsImV4cCI6MTY1NzM3MjA5M30.f_4H4r6oLqOVE0D2yD-TDtyA5KZJqkDYR3o0Z51MHPc"
   url="http://localhost:8080/api/";
 
 
@@ -35,4 +35,11 @@ export class ServicesService {
   getAllServicesTradesPerson() {
     return this.http.get<ServicesTradesPerson[]>(this.url+'services-tradesPerson')
   }
+
+  deleteServiceTradePerson(idServiceTradePerson: number) {
+    return this.http.delete(this.url+"admin/services-tradesPerson/"+idServiceTradePerson, {
+      headers: {'Authorization':  this._tokenTest}
+    })
+  }
+  
 }

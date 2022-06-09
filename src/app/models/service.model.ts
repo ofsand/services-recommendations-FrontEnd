@@ -6,6 +6,7 @@ export interface IService {
     email: string,
     phoneNumber: string,
     location: string,
+    description : string,
     category : Category
 
 }

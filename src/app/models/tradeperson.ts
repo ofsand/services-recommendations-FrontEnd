@@ -12,5 +12,6 @@ export interface ITradePerson {
     domain : string,
     speciality : string,
     adress : string,
+    description : string,
     category : Category
 }
