@@ -19,8 +19,8 @@ input:focus {
 }
 
 .filters {
-    padding: 30px;
-    background-color: #CACAFB;
+    padding: 50px 30px;
+    background: linear-gradient(to top, #6200ee00, #6200ee70);
 }
 .btn-primary {
     background-color: #6200EE;
