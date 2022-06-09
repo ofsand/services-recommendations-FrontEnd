@@ -24,23 +24,31 @@ export class ServiceTradePersonService {
   constructor(private http: HttpClient) { }
   
 
-  getAllServiceTradePerson() {
-    return this.http.get<ServicesTradesPerson[]>('http://localhost:8080/api/services-tradesPerson')
+  getAllServiceTradePerson(keyword:string) {
+    return this.http.get<ServicesTradesPerson[]>(`http://localhost:8080/api/services-tradesPerson?keyword=${keyword}`)
   }
-  getAllTradePerson(idCategory:number) {
-    return this.http.get<ServicesTradesPerson[]>(`http://localhost:8080/api/tradesPerson/${idCategory}`)
+  getAllTradePersonByCategory(idCategory:number,keyword:string) {
+    return this.http.get<ServicesTradesPerson[]>(`http://localhost:8080/api/tradesPerson/${idCategory}?keyword=${keyword}`)
   }
-  getAllService(idCategory:number) {
-    return this.http.get<ServicesTradesPerson[]>(`http://localhost:8080/api/services/${idCategory}`)
+  getAllServiceByCategory(idCategory:number,keyword:string) {
+    return this.http.get<ServicesTradesPerson[]>(`http://localhost:8080/api/services/${idCategory}?keyword=${keyword}`)
   }
-  findByCategory(idCategory: number) {
-    return this.http.get(`http://localhost:8080/api/category/${idCategory}/services-tradesPerson`, {
+
+  getAllTradePerson(keyword:string) {
+    return this.http.get<ServicesTradesPerson[]>(`http://localhost:8080/api/search/tradesPerson?keyword=${keyword}`)
+  }
+  getAllService(keyword:string) {
+    return this.http.get<ServicesTradesPerson[]>(`http://localhost:8080/api/search/services?keyword=${keyword}`)
+  }
+
+  findByCategory(idCategory: number,keyword:string) {
+    return this.http.get(`http://localhost:8080/api/category/${idCategory}/services-tradesPerson?keyword=${keyword}`, {
       
     })
   }
 
-  updateListOfServicesTradePerson(idCategory:number){
-    this.findByCategory(idCategory).subscribe(
+  updateListOfServicesTradePerson(idCategory:number,keyword:string){
+    this.findByCategory(idCategory,keyword).subscribe(
       (data:ServicesTradesPerson[]|any) => {
         this.services$ =data;
       }
