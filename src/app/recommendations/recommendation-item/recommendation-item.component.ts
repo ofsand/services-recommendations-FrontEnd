@@ -12,6 +12,7 @@ export class RecommendationItemComponent implements OnInit {
   @Input() recommendation: Recommendation;
   @Input() serviceTradesPersonId: number;
   // @Output() someEvent = new EventEmitter<string>();
+  starRating: number = 5;
 
   constructor(
     private recommendationData: RecommendationDataService
@@ -40,5 +41,4 @@ export class RecommendationItemComponent implements OnInit {
       }
     );
   }
-
 }

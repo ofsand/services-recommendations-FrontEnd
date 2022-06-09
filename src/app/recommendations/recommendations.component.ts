@@ -16,6 +16,8 @@ export class RecommendationsComponent implements OnInit {
   recommendation: Recommendation;
   serviceTradesPersonId: number = 1;
   counter: number = 0;
+
+
   constructor(
     private router: ActivatedRoute,
     private recommendationData: RecommendationDataService,
@@ -24,22 +26,21 @@ export class RecommendationsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.recommendation = new Recommendation(this.counter, 'dfsd', false, 0, {
+    this.recommendation = new Recommendation(this.counter, 'dfsd', true, 0, {
         email: "jaouad@gmail.com",
         username: "jaouad"
       } as User);
 
-    this.serviceTradesPersonId = 1; // this.router.snapshot.params["serviceTradesPersonId"];
+    this.serviceTradesPersonId = this.router.snapshot.params["serviceTradesPersonId"];
+    console.log(this.serviceTradesPersonId)
+    // this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
 
-    this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
 
-    /*
     if (this.serviceTradesPersonId == undefined && this.authenticationService.isUserLoggedIn()) {
       this.getDisapprovedRecommendations();
     } else {
       this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
     }
-    */
   }
 
   getRecommendationsByServiceTradesPerson(serviceTradesPersonId: number) {
@@ -78,6 +79,7 @@ export class RecommendationsComponent implements OnInit {
       }
     );
   }
+
 
 
 }

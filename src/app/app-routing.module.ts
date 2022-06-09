@@ -8,10 +8,12 @@ import { ServicesListComponent } from "./services-list/services-list.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'recommendations', component: RecommendationsComponent},
   {path: 'services', component: ServicesListComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'servicess/:serviceTradesPersonId', component: RecommendationsComponent},
+  {path: 'trades-persons/:serviceTradesPersonId', component: RecommendationsComponent}
 ];
 
 @NgModule({
