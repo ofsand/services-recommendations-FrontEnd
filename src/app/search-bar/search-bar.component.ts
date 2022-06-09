@@ -14,7 +14,10 @@ export class SearchBarComponent implements OnInit {
 
   @Input() searchword:string='';
   categories!: Category[];
- idCategorySelected!:number;
+ idCategorySelected:number=0;
+ serviceTradesPersonSelected:number=1;
+
+   keyword:string='';
 
   constructor(private categoryService: CategoryService,private stradesPerson:ServiceTradePersonService) { }
 
@@ -26,8 +29,69 @@ export class SearchBarComponent implements OnInit {
   }
 
 
+
+
   onChangeCategory(event: any) {
     console.log(event.target.value)
+    console.log(event.target.name)
+
+console.log(this.keyword)
+    if(event.target.name==="categorySelected"){
+      this.idCategorySelected=event.target.value;
+    }
+    else if(event.target.name==="typeService"){
+      this.serviceTradesPersonSelected=event.target.value;
+    }
+
+    
+    if(this.idCategorySelected==0) {
+
+    if( this.serviceTradesPersonSelected==1){
+      this.stradesPerson.getAllServiceTradePerson(this.keyword).subscribe((data:any)=>{
+        this.stradesPerson.setServiceList(data)
+      })}
+      else if(this.serviceTradesPersonSelected==2){
+        this.stradesPerson.getAllService(this.keyword).subscribe((data:any) => {
+          this.stradesPerson.setServiceList(data)
+        })
+      }
+      else if(this.serviceTradesPersonSelected==3){
+        this.stradesPerson.getAllTradePerson(this.keyword).subscribe((data:any) => {
+          this.stradesPerson.setServiceList(data)
+        })
+      }
+
+    }
+    else{
+      if(this.serviceTradesPersonSelected==1){
+        this.stradesPerson.findByCategory(this.idCategorySelected,this.keyword).subscribe((data:any)=>{
+          this.stradesPerson.setServiceList(data)
+      })
+      }
+      else if(this.serviceTradesPersonSelected==2){
+        this.stradesPerson.getAllServiceByCategory(this.idCategorySelected,this.keyword).subscribe((data:any)=>{
+          this.stradesPerson.setServiceList(data)
+      })
+      }
+      else if(this.serviceTradesPersonSelected==3){
+        this.stradesPerson.getAllTradePersonByCategory(this.idCategorySelected,this.keyword).subscribe((data:any)=>{
+          this.stradesPerson.setServiceList(data)
+            })
+      }
+
+
+    }
+    
+   
+
+
+  
+  }
+/*
+
+ onChangeCategory(event: any) {
+    console.log(event.target.value)
+    console.log(event.target.name)
     this.idCategorySelected=event.target.value;
     if(this.idCategorySelected==0){
       this.stradesPerson.getAllServiceTradePerson().subscribe((data:any)=>{
@@ -40,22 +104,35 @@ export class SearchBarComponent implements OnInit {
   }
   }
 
+
   changeList(event: any) {
+         
     
-    if(event.target.value==1){
+    if(event.target.value==1 && this.idCategorySelected==0){
       this.stradesPerson.getAllServiceTradePerson().subscribe((data:any)=>{
         this.stradesPerson.setServiceList(data)
       })
     }
-    else if(event.target.value==2){
-      this.stradesPerson.getAllService(this.idCategorySelected).subscribe((data:any)=>{
-    this.stradesPerson.setServiceList(data)
+    else if(event.target.value==1 && this.idCategorySelected!=0){
+      this.stradesPerson.findByCategory(event.target.value).subscribe((data:any) => {
+        this.stradesPerson.setServiceList(data)
       })
     }
-    else if(event.target.value==3){
-      this.stradesPerson.getAllTradePerson(this.idCategorySelected).subscribe((data:any)=>{
+   if(event.target.value==1){
+      this.stradesPerson.getAllServiceTradePerson().subscribe((data:any)=>{
+        this.stradesPerson.setServiceList(data)
+      })
+   }
+    if(event.target.value==2){
+      this.stradesPerson.getAllServiceByCategory(this.idCategorySelected,).subscribe((data:any)=>{
+          this.stradesPerson.setServiceList(data)
+      })
+    }
+     if(event.target.value==3){
+      this.stradesPerson.getAllTradePersonByCategory(this.idCategorySelected).subscribe((data:any)=>{
     this.stradesPerson.setServiceList(data)
       })
     }
   }
+  */
 }
