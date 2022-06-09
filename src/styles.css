@@ -8,16 +8,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #d5d4d1;
 }
 .filled.color1 {
-  color: red;
+  color: orange;
 }
 .filled.color2 {
-  color: #ab5a16;
+  color: orange;
 }
 .filled.color3 {
-  color: grey;
+  color: orange;
 }
 .filled.color4 {
-  color: #229a22;
+  color: orange;
 }
 .filled.color5 {
   color: orange;
