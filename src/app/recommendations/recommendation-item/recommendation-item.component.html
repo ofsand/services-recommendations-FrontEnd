@@ -1,26 +1,60 @@
-<div class="container m-3">
-  <div class="card shadow-sm bg-white rounded">
-    <div class="card-header">
-      <div class="row">
-        <div class="col-md-8 col-sm-8">
-          <h4>{{ recommendation.user.username }}</h4>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-8">
+      <div class="card shadow-sm bg-white rounded">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-8 col-sm-8">
+              <h4>{{ recommendation.user.username }}</h4>
+            </div>
+            <div class="col-md-4 col-sm-4">
+
+              <h4>
+                <ngb-rating [max]="5" [(rate)]="recommendation.numberStars" [readonly]="true"></ngb-rating>
+                <!-- <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating> -->
+              </h4>
+
+            </div>
+          </div>
         </div>
-        <div class="col-md-4 col-sm-4">
-          <h4>{{ recommendation.numberStars }}</h4>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <p>{{ recommendation.comment }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-          <p>{{ recommendation.comment }}</p>
-        </div>
+    <div class="col-md-4 col-sm-4 d-flex align-items-center">
+      <div class="d-flex flex-row justify-content-around" *ngIf="recommendation.approved == false">
+        <button class="btn btn-success mx-1 my-1" (click)="approve(recommendation.idRecommendation)">Approve</button>
+        <button class="btn btn-danger mx-1 my-1" (click)="decline(recommendation.idRecommendation)">Decline</button>
       </div>
     </div>
-    <div class="card-footer" *ngIf="recommendation.approved == false">
-      <button class="btn btn-success mx-1 my-1" (click)="approve(recommendation.idRecommendation)">Approve</button>
-      <button class="btn btn-warning mx-1 my-1" (click)="decline(recommendation.idRecommendation)">Decline</button>
-    </div>
+
   </div>
+
 </div>
+
+
+<form action="">
+  <div class="rating">
+    <input type="radio" name="rating" value="5" id="5" disabled>
+    <label for="5">☆</label>
+
+    <input type="radio" name="rating" value="4" id="4" disabled>
+    <label for="4">☆</label>
+
+    <input type="radio" name="rating" value="3" id="3" disabled>
+    <label for="3">☆</label>
+
+    <input type="radio" name="rating" value="2" id="2" disabled>
+    <label for="2">☆</label>
+
+    <input type="radio" name="rating" value="1" id="1" disabled>
+    <label for="1">☆</label>
+  </div>
+</form>
 

@@ -11,7 +11,6 @@ import { AddTradesPersonComponent } from './trades-persons/add-trades-person/add
 import { TradesPersonItemComponent } from './trades-persons/trades-person-item/trades-person-item.component';
 import { RecommendationsComponent } from './recommendations/recommendations.component';
 import { RecommendationItemComponent } from './recommendations/recommendation-item/recommendation-item.component';
-import { AddRecommendationComponent } from './recommendations/add-recommendation/add-recommendation.component';
 import { EditRecommendationComponent } from './recommendations/edit-recommendation/edit-recommendation.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ServicesListComponent } from './services-list/services-list.component';
@@ -50,7 +49,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TradesPersonItemComponent,
     RecommendationsComponent,
     RecommendationItemComponent,
-    AddRecommendationComponent,
     EditRecommendationComponent,
     CategoriesComponent,
     ServicesListComponent,
