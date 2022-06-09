@@ -3,3 +3,22 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.star {
+  font-size: 1.5rem;
+  color: #d5d4d1;
+}
+.filled.color1 {
+  color: red;
+}
+.filled.color2 {
+  color: #ab5a16;
+}
+.filled.color3 {
+  color: grey;
+}
+.filled.color4 {
+  color: #229a22;
+}
+.filled.color5 {
+  color: orange;
+}

@@ -26,21 +26,22 @@ export class RecommendationsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.recommendation = new Recommendation(this.counter, 'dfsd', false, 0, {
+    this.recommendation = new Recommendation(this.counter, 'dfsd', true, 0, {
         email: "jaouad@gmail.com",
         username: "jaouad"
       } as User);
 
-    this.serviceTradesPersonId = this.router.snapshot.params["serviceTradesPersonId"];
+    this.serviceTradesPersonId = 1; //this.router.snapshot.params["serviceTradesPersonId"];
 
-    //this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
+    this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
 
-
+    /*
     if (this.serviceTradesPersonId == undefined && this.authenticationService.isUserLoggedIn()) {
       this.getDisapprovedRecommendations();
     } else {
       this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
     }
+    */
   }
 
   getRecommendationsByServiceTradesPerson(serviceTradesPersonId: number) {

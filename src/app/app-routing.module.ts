@@ -8,10 +8,10 @@ import { AddServiceComponent } from "./services-list/add-service/add-service.com
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'recommendations', component: RecommendationsComponent},
   {path: 'services', component: AddServiceComponent},
-  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
