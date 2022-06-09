@@ -7,16 +7,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./services-list.component.css']
 })
 export class ServicesListComponent implements OnInit {
-
-  idService:number;
-  constructor(private activeRoute:ActivatedRoute) { }
-
   ngOnInit(): void {
-   this.idService=this.activeRoute.snapshot.params['id'];
-   this.getSercicesDetailsById();
+    throw new Error('Method not implemented.');
   }
-  getSercicesDetailsById(){
 
-  }
+ 
 
 }
