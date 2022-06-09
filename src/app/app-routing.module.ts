@@ -12,6 +12,8 @@ const routes: Routes = [
   {path: 'categories', component: CategoriesComponent},
   {path: 'recommendations', component: RecommendationsComponent},
   {path: 'services', component: AddServiceComponent},
+  {path: 'servicess/:serviceTradesPersonId', component: RecommendationsComponent},
+  {path: 'trades-persons/:serviceTradesPersonId', component: RecommendationsComponent}
 ];
 
 @NgModule({

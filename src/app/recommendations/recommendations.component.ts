@@ -31,17 +31,16 @@ export class RecommendationsComponent implements OnInit {
         username: "jaouad"
       } as User);
 
-    this.serviceTradesPersonId = 1; //this.router.snapshot.params["serviceTradesPersonId"];
+    this.serviceTradesPersonId = this.router.snapshot.params["serviceTradesPersonId"];
+    console.log(this.serviceTradesPersonId)
+    // this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
 
-    this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
 
-    /*
     if (this.serviceTradesPersonId == undefined && this.authenticationService.isUserLoggedIn()) {
       this.getDisapprovedRecommendations();
     } else {
       this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
     }
-    */
   }
 
   getRecommendationsByServiceTradesPerson(serviceTradesPersonId: number) {
