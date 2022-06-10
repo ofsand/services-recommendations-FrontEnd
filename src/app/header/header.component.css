@@ -5,7 +5,26 @@ nav {
     z-index: 1;
 }
 
+<<<<<<< HEAD
 .rounded-circle{
     background-color: white; color: #6200EE;
     padding: 3px 6px;
+=======
+.list-group-item.active{
+    color: #6200EE;
+    background-color: White;
+}
+
+.list-group-item{
+    color: white;
+    background-color: unset;
+}
+
+.offcanvas-header .btn-close{
+    background-color: white;
+}
+
+.offcanvas.show{
+    width: 30%;
+>>>>>>> styling-v1
 }
