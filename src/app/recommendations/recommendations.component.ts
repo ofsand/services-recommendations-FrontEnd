@@ -16,6 +16,9 @@ export class RecommendationsComponent implements OnInit {
   recommendation: Recommendation;
   serviceTradesPersonId: number = 1;
   counter: number = 0;
+  addedSuccessfully: boolean;
+
+
   constructor(
     private router: ActivatedRoute,
     private recommendationData: RecommendationDataService,
@@ -24,13 +27,13 @@ export class RecommendationsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.recommendation = new Recommendation(this.counter, 'dfsd', false, 0, {
+    this.recommendation = new Recommendation(this.counter, 'comment', false, 0, {
         email: "jaouad@gmail.com",
         username: "jaouad"
       } as User);
 
-    this.serviceTradesPersonId = 1; // this.router.snapshot.params["serviceTradesPersonId"];
-
+    this.serviceTradesPersonId = this.router.snapshot.params["serviceTradesPersonId"];
+    // console.log(this.serviceTradesPersonId)
     this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
 
     /*
@@ -39,7 +42,7 @@ export class RecommendationsComponent implements OnInit {
     } else {
       this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
     }
-    */
+     */
   }
 
   getRecommendationsByServiceTradesPerson(serviceTradesPersonId: number) {
@@ -62,6 +65,14 @@ export class RecommendationsComponent implements OnInit {
     this.recommendationData.addRecommendation(this.serviceTradesPersonId, this.recommendation).subscribe(
       success => {
         console.log(success);
+        this.addedSuccessfully = true;
+
+        setTimeout(() => {
+          // @ts-ignore
+          document.getElementById('add-success').classList.add('d-none');
+        }, 5000);
+
+
         this.refreshRecommendations(this.serviceTradesPersonId)
       }, error => {
         console.log(error);
@@ -78,6 +89,4 @@ export class RecommendationsComponent implements OnInit {
       }
     );
   }
-
-
 }

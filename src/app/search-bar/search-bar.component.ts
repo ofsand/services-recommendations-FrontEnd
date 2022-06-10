@@ -14,49 +14,58 @@ export class SearchBarComponent implements OnInit {
 
   @Input() searchword:string='';
   categories!: Category[];
- idCategorySelected:number=0;
- serviceTradesPersonSelected:number=1;
-
-   keyword:string='';
+  idCategorySelected:number=0;
+  serviceTradesPersonSelected:number=1;
+  private _keyword:string='';
+  isLoading: boolean = false
 
   constructor(private categoryService: CategoryService,private stradesPerson:ServiceTradePersonService) { }
 
   ngOnInit(): void {
+    this.isLoading = true
     this.categoryService.getAllCategories().subscribe(data => {
       this.categories = data
+      this.isLoading = false
     })
-    
+  }
+
+ 
+  set keyword(keyword: string) {
+    this._keyword = keyword;
+    this.onChangeCategory(null)
   }
 
 
 
-
   onChangeCategory(event: any) {
-    console.log(event.target.value)
-    console.log(event.target.name)
+    
+    this.isLoading = true
 
-console.log(this.keyword)
-    if(event.target.name==="categorySelected"){
-      this.idCategorySelected=event.target.value;
+    if(event !== null) {
+      if(event.target.name==="categorySelected"){
+        this.idCategorySelected=event.target.value;
+      }
+      else if(event.target.name==="typeService"){
+        this.serviceTradesPersonSelected=event.target.value;
+      }
     }
-    else if(event.target.name==="typeService"){
-      this.serviceTradesPersonSelected=event.target.value;
-    }
+   
 
     
     if(this.idCategorySelected==0) {
 
-    if( this.serviceTradesPersonSelected==1){
-      this.stradesPerson.getAllServiceTradePerson(this.keyword).subscribe((data:any)=>{
+      if( this.serviceTradesPersonSelected==1){
+      this.stradesPerson.getAllServiceTradePerson(this._keyword).subscribe((data:any)=>{
         this.stradesPerson.setServiceList(data)
       })}
+
       else if(this.serviceTradesPersonSelected==2){
-        this.stradesPerson.getAllService(this.keyword).subscribe((data:any) => {
+        this.stradesPerson.getAllService(this._keyword).subscribe((data:any) => {
           this.stradesPerson.setServiceList(data)
         })
       }
       else if(this.serviceTradesPersonSelected==3){
-        this.stradesPerson.getAllTradePerson(this.keyword).subscribe((data:any) => {
+        this.stradesPerson.getAllTradePerson(this._keyword).subscribe((data:any) => {
           this.stradesPerson.setServiceList(data)
         })
       }
@@ -64,75 +73,23 @@ console.log(this.keyword)
     }
     else{
       if(this.serviceTradesPersonSelected==1){
-        this.stradesPerson.findByCategory(this.idCategorySelected,this.keyword).subscribe((data:any)=>{
+        this.stradesPerson.findByCategory(this.idCategorySelected,this._keyword).subscribe((data:any)=>{
           this.stradesPerson.setServiceList(data)
       })
       }
       else if(this.serviceTradesPersonSelected==2){
-        this.stradesPerson.getAllServiceByCategory(this.idCategorySelected,this.keyword).subscribe((data:any)=>{
+        this.stradesPerson.getAllServiceByCategory(this.idCategorySelected,this._keyword).subscribe((data:any)=>{
           this.stradesPerson.setServiceList(data)
       })
       }
       else if(this.serviceTradesPersonSelected==3){
-        this.stradesPerson.getAllTradePersonByCategory(this.idCategorySelected,this.keyword).subscribe((data:any)=>{
+        this.stradesPerson.getAllTradePersonByCategory(this.idCategorySelected,this._keyword).subscribe((data:any)=>{
           this.stradesPerson.setServiceList(data)
-            })
+        })
       }
 
 
     }
-    
-   
-
-
-  
+    this.isLoading = false
   }
-/*
-
- onChangeCategory(event: any) {
-    console.log(event.target.value)
-    console.log(event.target.name)
-    this.idCategorySelected=event.target.value;
-    if(this.idCategorySelected==0){
-      this.stradesPerson.getAllServiceTradePerson().subscribe((data:any)=>{
-        this.stradesPerson.setServiceList(data)
-      })
-    }else{
-    this.stradesPerson.findByCategory(event.target.value).subscribe((data:any) => {
-      this.stradesPerson.setServiceList(data)
-    })
-  }
-  }
-
-
-  changeList(event: any) {
-         
-    
-    if(event.target.value==1 && this.idCategorySelected==0){
-      this.stradesPerson.getAllServiceTradePerson().subscribe((data:any)=>{
-        this.stradesPerson.setServiceList(data)
-      })
-    }
-    else if(event.target.value==1 && this.idCategorySelected!=0){
-      this.stradesPerson.findByCategory(event.target.value).subscribe((data:any) => {
-        this.stradesPerson.setServiceList(data)
-      })
-    }
-   if(event.target.value==1){
-      this.stradesPerson.getAllServiceTradePerson().subscribe((data:any)=>{
-        this.stradesPerson.setServiceList(data)
-      })
-   }
-    if(event.target.value==2){
-      this.stradesPerson.getAllServiceByCategory(this.idCategorySelected,).subscribe((data:any)=>{
-          this.stradesPerson.setServiceList(data)
-      })
-    }
-     if(event.target.value==3){
-      this.stradesPerson.getAllTradePersonByCategory(this.idCategorySelected).subscribe((data:any)=>{
-    this.stradesPerson.setServiceList(data)
-      })
-    }
-  }
-  */
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ServicesTradesPerson } from 'src/app/models/servicestradesperson.model';
 import { ServicesListComponent } from 'src/app/services-list/services-list.component';
@@ -13,23 +14,28 @@ import { IService } from './IService';
 })
 export class ServiceTradePersonItemComponent implements OnInit {
   services!: ServicesTradesPerson[];
- 
-  
- 
-  constructor(private service: ServiceTradePersonService) { }
+
+  idService:number;
+
+
+  constructor(private service: ServiceTradePersonService,private router : Router) { }
 
   ngOnInit(): void {
-     this.service.getAllServiceTradePerson('').subscribe(
-     (data) => {
-        this.services =data;
-    }
-  )
+    this.service.getAllServiceTradePerson('').subscribe(
+      (data) => {
+        this.services = data;
+      }
+    )
 
- this.service.changedListOfSTD$.subscribe((value) => {
-  this.services = value;
-});
+    this.service.changedListOfSTD$.subscribe((value) => {
+      this.services = value;
+    });
   }
- 
 
+
+  onConsult(id:number) {
  
+ this.router.navigate(['/servicesDetails',id]);
+
+  }
 }

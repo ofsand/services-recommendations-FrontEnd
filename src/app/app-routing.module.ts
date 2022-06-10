@@ -5,13 +5,21 @@ import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { RecommendationsComponent } from "./recommendations/recommendations.component";
 import { ServicesListComponent } from "./services-list/services-list.component";
+import {
+  ApproveRecommendationComponent
+} from "./recommendations/approve-recommendation/approve-recommendation.component";
+import {RouteGuardService} from "./services/data/route-guard.service";
+import {PageNotFoundComponent} from "./shared/components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'categories', component: CategoriesComponent},
-  {path: 'recommendations', component: RecommendationsComponent},
-  {path: 'services', component: ServicesListComponent},
-  {path: 'login', component: LoginComponent}
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'categories/admin', component: CategoriesComponent, canActivate: [RouteGuardService] },
+  { path: 'recommendations/admin', component: ApproveRecommendationComponent, canActivate: [RouteGuardService]},
+  { path: 'services/admin', component: ServicesListComponent, canActivate: [RouteGuardService]},
+  { path: 'services/:serviceTradesPersonId', component: RecommendationsComponent},
+  { path: 'trades-persons/:serviceTradesPersonId', component: RecommendationsComponent },
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
