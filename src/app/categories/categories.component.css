@@ -13,3 +13,20 @@ table {
 table tbody tr:nth-child(odd) {
     background-color: #F8F7FE !important;
 }
+.col-sm-4 {
+    flex: 0 0 auto;
+    width: 49.333333%;
+}
+.categories-form{
+    display: flex;
+    justify-content: center;
+}
+.categories-input{
+    width: 100%;
+}
+.categories-input div:first-child{
+    width: 50%;
+}
+.categories-input div:last-child{
+    width: 50%;
+}

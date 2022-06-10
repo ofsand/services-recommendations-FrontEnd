@@ -4,3 +4,21 @@ nav {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
+
+.list-group-item.active{
+    color: #6200EE;
+    background-color: White;
+}
+
+.list-group-item{
+    color: white;
+    background-color: unset;
+}
+
+.offcanvas-header .btn-close{
+    background-color: white;
+}
+
+.offcanvas.show{
+    width: 30%;
+}
