@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ServicesTradesPerson } from 'src/app/models/servicestradesperson.model';
 import { ServicesListComponent } from 'src/app/services-list/services-list.component';
 import { ServiceTradePersonService } from 'src/app/services/data/serviceTradePerson.service';
 import { IService } from './IService';
-import {Router} from "@angular/router";
 
 
 @Component({
@@ -15,6 +15,7 @@ import {Router} from "@angular/router";
 export class ServiceTradePersonItemComponent implements OnInit {
   services!: ServicesTradesPerson[];
 
+  idService:number;
 
 
   constructor(
@@ -30,19 +31,17 @@ export class ServiceTradePersonItemComponent implements OnInit {
     }
   )
 
- this.service.changedListOfSTD$.subscribe((value) => {
-  this.services = value;
-});
+  this.service.changedListOfSTD$.subscribe((value) => {
+    this.services = value;
+  });
   }
 
-  showServiceTradesPerson(serviceTradesPersonType: string, serviceTradesPersonId: number) {
-    if (serviceTradesPersonType == 'ServiceDto') {
-      this.router.navigate(['servicess', serviceTradesPersonId]);
-    } else {
-      this.router.navigate(['trades-persons', serviceTradesPersonId]);
+  onConsult(id:number, type : string) {
+
+    if (type == "ServiceDto") {
+      this.router.navigate(['/service-details', id]);
+    } else if (type == "TradesPersonDto")
+      this.router.navigate(['/tradeperson-details', id]);
+
     }
-  }
-
-
-
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Recommendation } from "../models/Recommendation.model";
 import {RecommendationDataService} from "../services/data/recommendation-data.service";
@@ -14,8 +14,9 @@ export class RecommendationsComponent implements OnInit {
 
   recommendations: Recommendation[];
   recommendation: Recommendation;
-  serviceTradesPersonId: number = 1;
+  @Input()serviceTradesPersonId: number;
   counter: number = 0;
+  addedSuccessfully: boolean;
 
 
   constructor(
@@ -26,21 +27,22 @@ export class RecommendationsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.recommendation = new Recommendation(this.counter, 'dfsd', true, 0, {
+    this.recommendation = new Recommendation(this.counter, 'comment', false, 0, {
         email: "jaouad@gmail.com",
         username: "jaouad"
       } as User);
+console.log(this.serviceTradesPersonId)
+   // this.serviceTradesPersonId = this.router.snapshot.params["serviceTradesPersonId"];
+    // console.log(this.serviceTradesPersonId)
+    this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
 
-    this.serviceTradesPersonId = this.router.snapshot.params["serviceTradesPersonId"];
-    console.log(this.serviceTradesPersonId)
-    // this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
-
-
+    /*
     if (this.serviceTradesPersonId == undefined && this.authenticationService.isUserLoggedIn()) {
       this.getDisapprovedRecommendations();
     } else {
       this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
     }
+     */
   }
 
   getRecommendationsByServiceTradesPerson(serviceTradesPersonId: number) {
@@ -63,6 +65,14 @@ export class RecommendationsComponent implements OnInit {
     this.recommendationData.addRecommendation(this.serviceTradesPersonId, this.recommendation).subscribe(
       success => {
         console.log(success);
+        this.addedSuccessfully = true;
+
+        setTimeout(() => {
+          // @ts-ignore
+          document.getElementById('add-success').classList.add('d-none');
+        }, 5000);
+
+
         this.refreshRecommendations(this.serviceTradesPersonId)
       }, error => {
         console.log(error);
@@ -79,7 +89,4 @@ export class RecommendationsComponent implements OnInit {
       }
     );
   }
-
-
-
 }

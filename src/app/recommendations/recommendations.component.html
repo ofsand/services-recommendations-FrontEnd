@@ -1,6 +1,19 @@
 
-<button type="button" class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Recommendation</button>
+<div class="container mx-20 my-3" id="add-success" *ngIf="addedSuccessfully">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 alert alert-success text-center p-2" role="alert">
 
+      <h4 class="alert-heading m-0">Your recommendation was added successfully and it will be approved soon !</h4>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-center">
+  <button type="button" class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#exampleModal" ng>Add Recommendation</button>
+
+
+</div>
 
 <!-- RECOMMENDATION ITEM -->
 <app-recommendation-item

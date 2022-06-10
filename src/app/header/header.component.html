@@ -1,19 +1,32 @@
 <nav class="navbar">
-    <div class="container-fluid justify-content-start">
-        <a 
-            class="text-white me-3"
-            data-bs-toggle="offcanvas" 
-            href="#offcanvasExample" 
-            role="button" 
-            aria-controls="offcanvasExample">
+    <div class="container-fluid justify-content-between">
+      <span>
+        <a
+          class="text-white me-3"
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+          *ngIf="authenticationService.isUserLoggedIn()"
+        >
             <i class="bi bi-list"></i>
         </a>
         <a class="navbar-brand text-white fw-bold" routerLink="/">PROservices</a>
-    </div>
-        
-         
-    
+      </span>
 
+      <span>
+         <button
+           class="btn mx-1 rounded-circle" style="background-color: white; color: #6200EE;     padding: 4px 8px;"
+           (click)="login()"
+           *ngIf="!authenticationService.isUserLoggedIn()"
+         ><i class="bi bi-person-fill"></i></button>
+        <button
+          class="btn btn-outline-info text-white"
+          (click)="logout()"
+          *ngIf="authenticationService.isUserLoggedIn()"
+        >Logout</button>
+      </span>
+    </div>
 </nav>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -23,23 +36,23 @@
     </div>
     <div class="offcanvas-body">
         <ul class="list-group">
-            <li 
-                class="list-group-item" 
-                routerLink="/categories" 
+            <li
+                class="list-group-item"
+                routerLink="/categories/admin"
                 style="cursor: pointer;"
                 routerLinkActive="active">
                 Categories
             </li>
-            <li  
-                class="list-group-item" 
-                routerLink="/recommendations" 
+            <li
+                class="list-group-item"
+                routerLink="/recommendations/admin"
                 style="cursor: pointer;"
                 routerLinkActive="active">
                 Recommendations
             </li>
-            <li      
-                class="list-group-item" 
-                routerLink="/services" 
+            <li
+                class="list-group-item"
+                routerLink="/services/admin"
                 style="cursor: pointer;"
                 routerLinkActive="active">
                 Services & Trades Person

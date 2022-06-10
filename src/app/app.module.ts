@@ -19,10 +19,14 @@ import {DropDownFilterComponent} from "./search-bar/drop-down-filter/drop-down-f
 import {RadioButtonsFilterComponent} from "./search-bar/radio-buttons-filter/radio-buttons-filter.component";
 import {SearchComponent} from "./search-bar/search/search.component";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceTradePersonItemComponent } from './home/service-trade-person-item/service-trade-person-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TradePersonDetailsComponent } from './services-list/trade-person-details/trade-person-details.component';
+import { ServiceDetailsComponent } from './services-list/service-details/service-details.component';
+import { ApproveRecommendationComponent } from './recommendations/approve-recommendation/approve-recommendation.component';
+import { HttpInterceptorJwtAuthService } from './services/interceptors/http-interceptor-jwt-auth.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditRecommendationComponent,
     CategoriesComponent,
     ServicesListComponent,
-    ServiceTradePersonItemComponent
+    ServiceTradePersonItemComponent,
+    ServiceDetailsComponent,
+    TradePersonDetailsComponent,
+    ApproveRecommendationComponent
   ],
   imports: [
     BrowserModule,
@@ -54,11 +61,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule
   ],
   providers: [
-    /*
     {
       provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorJwtAuthService, multi: true
     }
-     */
   ],
   bootstrap: [AppComponent]
 })
