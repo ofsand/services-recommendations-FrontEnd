@@ -30,9 +30,9 @@ export class ServiceTradePersonItemComponent implements OnInit {
     }
   )
 
- this.service.changedListOfSTD$.subscribe((value) => {
-  this.services = value;
-});
+  this.service.changedListOfSTD$.subscribe((value) => {
+    this.services = value;
+  });
   }
 
   showServiceTradesPerson(serviceTradesPersonType: string, serviceTradesPersonId: number) {

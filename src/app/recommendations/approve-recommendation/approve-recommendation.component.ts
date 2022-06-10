@@ -48,6 +48,8 @@ export class ApproveRecommendationComponent implements OnInit {
         this.approvedSuccessfully = true;
         // console.log(this.approvedSuccessfully);
 
+        // @ts-ignore
+        document.getElementById('approve-success').classList.add('d-block');
         setTimeout(() => {
           // @ts-ignore
           document.getElementById('approve-success').classList.add('d-none');
