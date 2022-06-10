@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Recommendation} from "../../models/Recommendation.model";
 import {RecommendationDataService} from "../../services/data/recommendation-data.service";
+import {ApproveRecommendationComponent} from "../approve-recommendation/approve-recommendation.component";
 
 @Component({
   selector: 'app-recommendation-item',
@@ -11,11 +12,11 @@ export class RecommendationItemComponent implements OnInit {
 
   @Input() recommendation: Recommendation;
   @Input() serviceTradesPersonId: number;
-  // @Output() someEvent = new EventEmitter<string>();
-  starRating: number = 5;
+
 
   constructor(
-    private recommendationData: RecommendationDataService
+    private recommendationData: RecommendationDataService,
+    private approveRecommendationComponent: ApproveRecommendationComponent
   ) {
   }
 
@@ -23,22 +24,10 @@ export class RecommendationItemComponent implements OnInit {
   }
 
   approve(recommendationId: number) {
-    this.recommendationData.approve(recommendationId).subscribe(
-      success => {
-          console.log(success);
-      }, error => {
-          console.log(error);
-      }
-    );
+    this.approveRecommendationComponent.approve(recommendationId);
   }
 
   decline(recommendationId: number) {
-    this.recommendationData.decline(recommendationId).subscribe(
-      success => {
-        console.log(success);
-      }, error => {
-        console.log(error);
-      }
-    );
+    this.approveRecommendationComponent.decline(recommendationId);
   }
 }

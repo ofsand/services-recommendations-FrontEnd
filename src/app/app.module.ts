@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceTradePersonItemComponent } from './home/service-trade-person-item/service-trade-person-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ApproveRecommendationComponent } from './recommendations/approve-recommendation/approve-recommendation.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditRecommendationComponent,
     CategoriesComponent,
     ServicesListComponent,
-    ServiceTradePersonItemComponent
+    ServiceTradePersonItemComponent,
+    ApproveRecommendationComponent
   ],
   imports: [
     BrowserModule,
