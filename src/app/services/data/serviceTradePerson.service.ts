@@ -19,10 +19,7 @@ export class ServiceTradePersonService {
     this.services$.next(serviceTP);
   }
 
-
-
   constructor(private http: HttpClient) { }
-
 
   getAllServiceTradePerson(keyword:string) {
     return this.http.get<ServicesTradesPerson[]>(`${API_URL}/services-tradesPerson?keyword=${keyword}`)
@@ -43,7 +40,6 @@ export class ServiceTradePersonService {
 
   findByCategory(idCategory: number,keyword:string) {
     return this.http.get(`${API_URL}/category/${idCategory}/services-tradesPerson?keyword=${keyword}`, {
-
     })
   }
 
