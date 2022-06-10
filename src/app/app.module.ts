@@ -7,7 +7,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { HomeComponent } from './home/home.component';
 import { RecommendationsComponent } from './recommendations/recommendations.component';
 import { RecommendationItemComponent } from './recommendations/recommendation-item/recommendation-item.component';
-import { AddRecommendationComponent } from './recommendations/add-recommendation/add-recommendation.component';
 import { EditRecommendationComponent } from './recommendations/edit-recommendation/edit-recommendation.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ServicesListComponent } from './services-list/services-list.component';
@@ -26,6 +25,7 @@ import { ServiceTradePersonItemComponent } from './home/service-trade-person-ite
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TradePersonDetailsComponent } from './services-list/trade-person-details/trade-person-details.component';
 import { ServiceDetailsComponent } from './services-list/service-details/service-details.component';
+import { ApproveRecommendationComponent } from './recommendations/approve-recommendation/approve-recommendation.component';
 
 @NgModule({
   declarations: [
@@ -41,13 +41,13 @@ import { ServiceDetailsComponent } from './services-list/service-details/service
     HomeComponent,
     RecommendationsComponent,
     RecommendationItemComponent,
-    AddRecommendationComponent,
     EditRecommendationComponent,
     CategoriesComponent,
     ServicesListComponent,
     ServiceTradePersonItemComponent,
     ServiceDetailsComponent,
-    TradePersonDetailsComponent
+    TradePersonDetailsComponent,
+    ApproveRecommendationComponent
   ],
   imports: [
     BrowserModule,

@@ -14,21 +14,22 @@ import { IService } from './IService';
 })
 export class ServiceTradePersonItemComponent implements OnInit {
   services!: ServicesTradesPerson[];
- 
-  
- 
-  constructor(private service: ServiceTradePersonService,private router:Router) { }
+
+  idService:number;
+
+
+  constructor(private service: ServiceTradePersonService,private router : Router) { }
 
   ngOnInit(): void {
-     this.service.getAllServiceTradePerson('').subscribe(
-     (data) => {
-        this.services =data;
-    }
-  )
+    this.service.getAllServiceTradePerson('').subscribe(
+      (data) => {
+        this.services = data;
+      }
+    )
 
- this.service.changedListOfSTD$.subscribe((value) => {
-  this.services = value;
-});
+    this.service.changedListOfSTD$.subscribe((value) => {
+      this.services = value;
+    });
   }
  
   onConsult(id:number, type : string) {
@@ -39,5 +40,5 @@ export class ServiceTradePersonItemComponent implements OnInit {
     this.router.navigate(['/tradeperson-details',id]);
 
     }
- 
+
 }

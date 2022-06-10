@@ -19,6 +19,7 @@ export class ServicesListComponent implements OnInit {
   services !: IService;
   tradesperson !: ITradePerson;
   servicestradesperson !: any[];
+  servicestradespersons !: ServicesTradesPerson[];
   categories !: Category[];
   idCategory : number = 0;
 
@@ -52,9 +53,10 @@ export class ServicesListComponent implements OnInit {
     
     this.categoryService.getAllCategories().subscribe(
       (data) => {
-        this.categories = data
+        this.categories = data;
       }
     )
+   
   }
 
  
@@ -66,21 +68,28 @@ export class ServicesListComponent implements OnInit {
     this.modalService.open(content, { centered: true });
   }
   onSubmitToAddService() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.serviceForm.value);
-    this.servicesService.addService(this.serviceForm.value,this.idCategory);
-    // window.location.reload();
-    this.reloadCurrentRoute();
+    // console.warn(this.serviceForm.value);
+    this.servicesService.addService(this.serviceForm.value,this.idCategory).subscribe(
+      (data: any) => {
+        this.servicestradesperson = this.servicestradesperson.filter(servicetradeperson => (servicetradeperson.id !== data.id))
+        this.servicestradesperson.push(data)
+      }
+    )
+  
   }
   onSubmitToAddTradeperson(){
     console.warn(this.tradepersonForm.value);
-    this.servicesService.addTradeperson(this.tradepersonForm.value,this.idCategory);
-    this.reloadCurrentRoute();
+    this.servicesService.addTradeperson(this.tradepersonForm.value,this.idCategory).subscribe(
+      (data: any) => {
+        this.servicestradesperson = this.servicestradesperson.filter(servicetradeperson => (servicetradeperson.id !== data.id))
+        this.servicestradesperson.push(data)
+      }
+    )
   }
 
   getCategory(event: any){
-      this.idCategory =event.target.value;
-      console.log("idCategory : ",this.idCategory); 
+    this.idCategory =event.target.value;
+    console.log("idCategory : ",this.idCategory); 
   }
   reloadCurrentRoute() {
     let currentUrl = this._router.url;
@@ -98,6 +107,5 @@ export class ServicesListComponent implements OnInit {
       }
     )
   }
-
-
+  
 }

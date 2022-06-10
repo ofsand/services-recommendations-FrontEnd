@@ -16,7 +16,6 @@ export class CategoryService {
   }
 
   addCategorie(category: Category) {
-    console.log(category)
     return this.http.post('http://localhost:8080/api/admin/categories', 
       category, {
       headers: {'Authorization': this._tokenTest}
