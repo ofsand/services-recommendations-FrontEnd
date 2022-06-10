@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
+import {ADMIN_API_URL, API_URL} from "../../shared/utils/app.constants";
 
 
 @Injectable({
@@ -10,21 +11,21 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   getAllCategories() {
-    return this.http.get<Category[]>('http://localhost:8080/api/categories')
+    return this.http.get<Category[]>(`${ADMIN_API_URL}/categories`);
   }
 
   addCategorie(category: Category) {
     console.log(category)
-    return this.http.post('http://localhost:8080/api/admin/categories',
+    return this.http.post(`${ADMIN_API_URL}/categories`,
       category)
   }
 
   updateCategory(category: Category) {
-    return this.http.put(`http://localhost:8080/api/admin/category/${category.idCategory}`,
+    return this.http.put(`${ADMIN_API_URL}/category/${category.idCategory}`,
       category)
   }
 
   deleteCategory(idCategory: number) {
-    return this.http.delete(`http://localhost:8080/api/admin/category/${idCategory}`)
+    return this.http.delete(`${ADMIN_API_URL}/category/${idCategory}`)
   }
 }

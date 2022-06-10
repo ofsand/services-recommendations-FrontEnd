@@ -34,4 +34,19 @@ export class ServicesService {
     return this.http.delete(`${ADMIN_API_URL}/services-tradesPerson/${idServiceTradePerson}`)
   }
 
+<<<<<<< Updated upstream
+=======
+  findServiceTradePersonById(idServiceTradePerson: number) {
+    return this.http.get(`${API_URL}/serviceTradePerson/${idServiceTradePerson}`)
+  }
+
+  findServiceById(id:number){
+    return this.http.get(`${API_URL}/service-details/${id}`)
+
+  }
+
+  findTradePersonById(id:number){
+    return this.http.get(`${API_URL}/tradeperson-details/${id}`)
+  }
+>>>>>>> Stashed changes
 }
