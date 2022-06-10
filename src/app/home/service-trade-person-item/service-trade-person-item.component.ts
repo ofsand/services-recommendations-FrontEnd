@@ -19,15 +19,13 @@ export class ServiceTradePersonItemComponent implements OnInit {
   constructor(private service: ServiceTradePersonService) { }
 
   ngOnInit(): void {
-     this.service.getAllServiceTradePerson('').subscribe(
-     (data) => {
+    this.service.getAllServiceTradePerson('').subscribe(
+      (data) => {
         this.services =data;
-    }
-  )
-
- this.service.changedListOfSTD$.subscribe((value) => {
-  this.services = value;
-});
+    })
+    this.service.changedListOfSTD$.subscribe((value) => {
+      this.services = value;
+    });
   }
  
 

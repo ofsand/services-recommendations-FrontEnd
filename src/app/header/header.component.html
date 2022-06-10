@@ -1,6 +1,7 @@
 <nav class="navbar">
-    <div class="container-fluid justify-content-start">
-        <a 
+    <div class="container-fluid">
+        <div class="me-auto">
+            <a 
             class="text-white me-3"
             data-bs-toggle="offcanvas" 
             href="#offcanvasExample" 
@@ -10,15 +11,19 @@
         </a>
         <a class="navbar-brand text-white fw-bold" routerLink="/">PROservices</a>
     </div>
-        
-         
     
+        <div class="ms-auto">
 
+            <button (click)="navigateLogin()" type="button" class="btn rounded-circle btn-icon" style="color: #6200EE; background-color: #FFFFFF">
+                <i class="bi bi-person-fill"></i>
+            </button>
+        </div>
+    </div>
 </nav>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">PROservices</h5>
+        <h3 class="offcanvas-title" id="offcanvasExampleLabel">PROservices</h3>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
