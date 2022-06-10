@@ -8,14 +8,15 @@ import { ServicesListComponent } from "./services-list/services-list.component";
 import {
   ApproveRecommendationComponent
 } from "./recommendations/approve-recommendation/approve-recommendation.component";
+import {RouteGuardService} from "./services/data/route-guard.service";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'categories', component: CategoriesComponent },
-  { path: 'recommendations/admin', component: ApproveRecommendationComponent },
-  { path: 'services/admin', component: ServicesListComponent },
-  { path: 'servicess/:serviceTradesPersonId', component: RecommendationsComponent },
+  { path: 'recommendations/admin', component: ApproveRecommendationComponent, canActivate: [RouteGuardService]},
+  { path: 'services/admin', component: ServicesListComponent, canActivate: [RouteGuardService]},
+  { path: 'servicess/:serviceTradesPersonId', component: RecommendationsComponent},
   { path: 'trades-persons/:serviceTradesPersonId', component: RecommendationsComponent }
 ];
 
