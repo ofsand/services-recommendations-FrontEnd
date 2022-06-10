@@ -5,6 +5,13 @@ nav {
     z-index: 1;
 }
 
+<<<<<<< Updated upstream
+=======
+.rounded-circle{
+    background-color: white; color: #6200EE;
+    padding: 3px 6px;
+}
+>>>>>>> Stashed changes
 .list-group-item.active{
     color: #6200EE;
     background-color: White;
