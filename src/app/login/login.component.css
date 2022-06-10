@@ -1,8 +1,8 @@
 .form-container{
-    background: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.5);
     padding: 25px 50px;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px 0px #000;
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.6);
     position: absolute;
     top: 30%;
     left: 35%;
@@ -10,7 +10,7 @@
 }
 
 .bg-login{
-    background: linear-gradient(to top, #0f0e14e0, #bd8fffb0), url(Image-2.jpg);
+    background: linear-gradient(to top, #6200ee61, #30303069), url(Image-2.jpg);
     width: 100%;
     height: calc(100vh - 65px);
     background-size: 100%;

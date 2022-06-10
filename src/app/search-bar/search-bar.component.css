@@ -20,7 +20,11 @@ input:focus {
 
 .filters {
     padding: 50px 30px;
-    background: linear-gradient(to top, #6200ee00, #6200ee70);
+    background: linear-gradient(to top, #8c8c8c75, #8f49f39e);
+    z-index: 4;
+    position:absolute;
+    bottom: 10%;
+    width: 100%;
 }
 .btn-primary {
     background-color: #6200EE;
