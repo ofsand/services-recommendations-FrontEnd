@@ -18,27 +18,30 @@ export class ServiceTradePersonItemComponent implements OnInit {
   idService:number;
 
 
-  constructor(private service: ServiceTradePersonService,private router : Router) { }
+  constructor(
+    private service: ServiceTradePersonService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.service.getAllServiceTradePerson('').subscribe(
-      (data) => {
-        this.services = data;
-      }
-    )
+     this.service.getAllServiceTradePerson('').subscribe(
+     (data) => {
+       console.log(data);
+        this.services =data;
+    }
+  )
 
-    this.service.changedListOfSTD$.subscribe((value) => {
-      this.services = value;
-    });
+  this.service.changedListOfSTD$.subscribe((value) => {
+    this.services = value;
+  });
   }
- 
+
   onConsult(id:number, type : string) {
-    
-    if(type=="ServiceDto"){
-      this.router.navigate(['/service-details',id]);
-    }else if(type=="TradesPersonDto")
-    this.router.navigate(['/tradeperson-details',id]);
+
+    if (type == "ServiceDto") {
+      this.router.navigate(['/service-details', id]);
+    } else if (type == "TradesPersonDto")
+      this.router.navigate(['/tradeperson-details', id]);
 
     }
-
 }

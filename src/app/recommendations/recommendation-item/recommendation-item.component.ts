@@ -23,6 +23,7 @@ export class RecommendationItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   approve(recommendationId: number) {
     this.approveRecommendationComponent.approve(recommendationId);
   }
