@@ -24,6 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceTradePersonItemComponent } from './home/service-trade-person-item/service-trade-person-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TradePersonDetailsComponent } from './services-list/trade-person-details/trade-person-details.component';
+import { ServiceDetailsComponent } from './services-list/service-details/service-details.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditRecommendationComponent,
     CategoriesComponent,
     ServicesListComponent,
-    ServiceTradePersonItemComponent
+    ServiceTradePersonItemComponent,
+    ServiceDetailsComponent,
+    TradePersonDetailsComponent
   ],
   imports: [
     BrowserModule,

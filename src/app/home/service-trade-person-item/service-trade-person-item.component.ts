@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ServicesTradesPerson } from 'src/app/models/servicestradesperson.model';
 import { ServicesListComponent } from 'src/app/services-list/services-list.component';
@@ -16,7 +17,7 @@ export class ServiceTradePersonItemComponent implements OnInit {
  
   
  
-  constructor(private service: ServiceTradePersonService) { }
+  constructor(private service: ServiceTradePersonService,private router:Router) { }
 
   ngOnInit(): void {
      this.service.getAllServiceTradePerson('').subscribe(
@@ -30,6 +31,13 @@ export class ServiceTradePersonItemComponent implements OnInit {
 });
   }
  
+  onConsult(id:number, type : string) {
+    
+    if(type=="ServiceDto"){
+      this.router.navigate(['/service-details',id]);
+    }else if(type=="TradesPersonDto")
+    this.router.navigate(['/tradeperson-details',id]);
 
+    }
  
 }
