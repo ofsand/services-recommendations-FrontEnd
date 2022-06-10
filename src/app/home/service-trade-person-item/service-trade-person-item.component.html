@@ -1,11 +1,11 @@
-<div class="container" *ngIf="services.length !== 0; else dataNotFound">
+<div class="container" *ngIf="services.length !== 0">
     <div class="row">
         <div class="col justify-content-center">
             <h1 class="d-flex align-items-center justify-content-center h-100">
             Explore
             </h1>
         </div>
-        
+
     </div>
     <div class="row">
         <div class="container" *ngFor="let service of services" class="col-md-3 box">
@@ -13,16 +13,10 @@
                 <div class="card-body">
                     <h3>{{service.title}}</h3>
                     <p>{{service.description}}</p>
-                    <button class="btn btn-primary">Consulter</button>
+                    <button class="btn btn-primary" (click)="showServiceTradesPerson(service.type, service.id)">Consulter</button>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
-<ng-template #dataNotFound>
-    <div class="m-auto" style="width: 300px; height: 300px">
-        <h3 class="text-center pt-3 fs-2 fw-bold">Data Not found</h3>
-        <img src="/assets/images/data-not-found.png" class="text-center img-fluid" alt="image" width="300px" h="300px">
-    </div>
-</ng-template>

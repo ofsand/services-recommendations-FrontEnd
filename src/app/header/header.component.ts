@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {AuthenticationService} from "../services/data/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -9,33 +10,21 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    public authenticationService: AuthenticationService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
-  navigateLogin() {
-    this.router.navigate(['/login'])
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['']);
   }
 
-  testLogin() {
-    this.http.post('http://localhost:8080/api/login',{
-      "username": "admin",
-      "password": "admin"
-  }).subscribe(
-      {
-        next: (data) => {
-            console.log(data)
-        },
-        error: (error) => {
-          console.log(error);
-          console.log('ther is error')
-        },
-        complete: () => {
-          console.log("completed");
-          
-        }
-      }
-    )
+  login() {
+    this.router.navigate(['login']);
   }
+
 }
