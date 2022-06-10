@@ -9,10 +9,15 @@ import { Category } from 'src/app/models/category.model';
 export class CategoryService {
   private _tokenTest = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ6YWthcmlhIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwiZXhwIjoxNjU3MTgzNTAxfQ.LG_orwbaTyCu8Lcjx_x1LA4BRwg_5rtBkuQ7lWJFBcg"
 
+<<<<<<< Updated upstream
   constructor(private http: HttpClient) { }
   
   getAllCategories() {
     return this.http.get<Category[]>('http://localhost:8080/api/categories')
+=======
+    getAllCategories() {
+    return this.http.get<Category[]>(`${API_URL}/categories`);
+>>>>>>> Stashed changes
   }
 
   addCategorie(category: Category) {
