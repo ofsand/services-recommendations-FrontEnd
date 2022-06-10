@@ -37,7 +37,7 @@ export class ServiceTradePersonItemComponent implements OnInit {
 
   showServiceTradesPerson(serviceTradesPersonType: string, serviceTradesPersonId: number) {
     if (serviceTradesPersonType == 'ServiceDto') {
-      this.router.navigate(['servicess', serviceTradesPersonId]);
+      this.router.navigate(['services', serviceTradesPersonId]);
     } else {
       this.router.navigate(['trades-persons', serviceTradesPersonId]);
     }

@@ -9,15 +9,17 @@ import {
   ApproveRecommendationComponent
 } from "./recommendations/approve-recommendation/approve-recommendation.component";
 import {RouteGuardService} from "./services/data/route-guard.service";
+import {PageNotFoundComponent} from "./shared/components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'categories', component: CategoriesComponent },
+  { path: 'categories/admin', component: CategoriesComponent, canActivate: [RouteGuardService] },
   { path: 'recommendations/admin', component: ApproveRecommendationComponent, canActivate: [RouteGuardService]},
   { path: 'services/admin', component: ServicesListComponent, canActivate: [RouteGuardService]},
-  { path: 'servicess/:serviceTradesPersonId', component: RecommendationsComponent},
-  { path: 'trades-persons/:serviceTradesPersonId', component: RecommendationsComponent }
+  { path: 'services/:serviceTradesPersonId', component: RecommendationsComponent},
+  { path: 'trades-persons/:serviceTradesPersonId', component: RecommendationsComponent },
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
