@@ -46,14 +46,17 @@ export class ApproveRecommendationComponent implements OnInit {
       success => {
         console.log(success);
         this.approvedSuccessfully = true;
-        // console.log(this.approvedSuccessfully);
 
-        // @ts-ignore
-        document.getElementById('approve-success').classList.add('d-block');
-        setTimeout(() => {
-          // @ts-ignore
-          document.getElementById('approve-success').classList.add('d-none');
-        }, 3000);
+        const divApproveAlert = document.getElementById('approve-success') as HTMLElement | null;
+
+        if (divApproveAlert != null) {
+          divApproveAlert.classList.remove('d-none');
+
+          setTimeout(() => {
+            divApproveAlert.classList.add('d-none');
+          }, 2000);
+        }
+
 
         this.getDisapprovedRecommendations();
       }, error => {

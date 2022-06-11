@@ -65,13 +65,15 @@ console.log(this.serviceTradesPersonId)
     this.recommendationData.addRecommendation(this.serviceTradesPersonId, this.recommendation).subscribe(
       success => {
         console.log(success);
-        this.addedSuccessfully = true;
 
-        setTimeout(() => {
-          // @ts-ignore
-          document.getElementById('add-success').classList.add('d-none');
-        }, 5000);
+        const divSuccessAlert = document.getElementById('add-success') as HTMLElement | null;
 
+        if (divSuccessAlert != null) {
+          divSuccessAlert.classList.remove('d-none')
+          setTimeout(() => {
+            divSuccessAlert.classList.add('d-none');
+          }, 5000);
+        }
 
         this.refreshRecommendations(this.serviceTradesPersonId)
       }, error => {
