@@ -8,7 +8,7 @@
 
     </div>
 
-    <div class="row ">
+    <div class="row" *ngIf="services.length!==0; else noDataFound">
         <div class="container" *ngFor="let service of services" class="col-md-4 box">
             <div class="card card-box">
                 <div class="card-body">
@@ -20,4 +20,16 @@
 
         </div>
     </div>
+    <ng-template #noDataFound>
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div style="width: 300px; height: 300px">
+                    <img src="./assets/images/data-not-found.png" class="img-fluid"/>
+                </div>
+                <div class="col-auto">
+                    <h4 class="fs-4 fw-bold" style="color: #8a69bc;">Data Not Found</h4>
+                </div>
+            </div>
+        </div>
+    </ng-template>
 </div>

@@ -5,7 +5,13 @@ nav {
     z-index: 1;
 }
 
-.rounded-circle{
-    background-color: white; color: #6200EE;
+.login{
+    background-color: white; 
+    color: #6200EE;
     padding: 3px 6px;
+}
+.logout {
+    background-color: white; 
+    color: #6200EE;
+    padding-left: 6px;
 }

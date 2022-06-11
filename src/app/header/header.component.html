@@ -16,15 +16,15 @@
 
       <span>
          <button
-           class="btn mx-1 rounded-circle"
+           class="btn mx-1 rounded-circle login"
            (click)="login()"
            *ngIf="!authenticationService.isUserLoggedIn()"
-         ><i class="bi bi-person-fill"></i></button>
+         > <i class="bi bi-person-fill"></i></button>
         <button
-          class="btn btn-outline-info text-white"
+          class="btn mx-1 rounded-circle logout"
           (click)="logout()"
           *ngIf="authenticationService.isUserLoggedIn()"
-        >Logout</button>
+        ><i class="bi bi-box-arrow-left"></i></button>
       </span>
     </div>
 </nav>
