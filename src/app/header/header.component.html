@@ -9,14 +9,14 @@
           aria-controls="offcanvasExample"
           *ngIf="authenticationService.isUserLoggedIn()"
         >
-            <i class="bi bi-list"></i>
+            <i class="bi bi-list" style="font-size: 25px; margin-top: 5px;"></i>
         </a>
         <a class="navbar-brand text-white fw-bold" routerLink="/">PROservices</a>
       </span>
 
       <span>
          <button
-           class="btn mx-1 rounded-circle" style="background-color: white; color: #6200EE;     padding: 4px 8px;"
+           class="btn mx-1 rounded-circle secondary-color-text"
            (click)="login()"
            *ngIf="!authenticationService.isUserLoggedIn()"
          ><i class="bi bi-person-fill"></i></button>
@@ -31,7 +31,7 @@
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-        <h3 class="offcanvas-title" id="offcanvasExampleLabel" style="color: white;">PROservices</h3>
+        <h3 class="offcanvas-title fw-bold " id="offcanvasExampleLabel" style="color: white;">PROservices</h3>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -58,5 +58,8 @@
                 Services & Trades Person
             </li>
         </ul>
+    </div>
+    <div class="offcanvas-footer text-center primary-color-background py-2 fw-bold text-white">
+      By Team CHAKRA
     </div>
 </div>

@@ -1,17 +1,27 @@
 .form-container{
-    background: rgba(255,255,255,0.5);
+    background: rgba(0, 0, 0, 0.5);
     padding: 25px 50px;
     border-radius: 8px;
     box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.6);
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 35%;
     width: 30%;
 }
 
+@media only screen and (max-width: 1366px) {
+    .form-container{
+        top: 25%;
+    }
+}
+
 .bg-login{
-    background: linear-gradient(to top, #6200ee61, #30303069), url(Image-2.jpg);
+    background: linear-gradient(to top, #00000057, #3f69b5a3), url(Image-2.jpg);
     width: 100%;
-    height: calc(100vh - 65px);
+    height: 100vh;
     background-size: 100%;
+}
+
+form{
+    border-radius: 0px !important;
 }
