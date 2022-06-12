@@ -27,6 +27,7 @@ import { TradePersonDetailsComponent } from './services-list/trade-person-detail
 import { ServiceDetailsComponent } from './services-list/service-details/service-details.component';
 import { ApproveRecommendationComponent } from './recommendations/approve-recommendation/approve-recommendation.component';
 import { HttpInterceptorJwtAuthService } from './services/interceptors/http-interceptor-jwt-auth.service';
+import { NgxPaginationModule } from 'ngx-pagination'
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { HttpInterceptorJwtAuthService } from './services/interceptors/http-inte
     HttpClientModule,
     NgbModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [
     {

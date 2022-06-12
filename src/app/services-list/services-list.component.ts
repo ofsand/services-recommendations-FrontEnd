@@ -16,6 +16,9 @@ import { ServicesService } from 'src/app/services/data/services.service';
 })
 export class ServicesListComponent implements OnInit {
 
+  p: number = 1;
+  total: number = 0;
+
   services !: IService;
   tradesperson !: ITradePerson;
   servicestradesperson !: any[];
@@ -45,10 +48,14 @@ export class ServicesListComponent implements OnInit {
   });
   constructor(private _router : Router,private modalService: NgbModal, private fb: FormBuilder, private servicesService : ServicesService, private categoryService: CategoryService) { }
 
-  ngOnInit(): void {
-    this.servicesService.getAllServicesTradesPerson().subscribe( data => {
-      console.log("data : ",data);  
-      this.servicestradesperson=data;
+  ngOnInit(){
+    this.getServices();   
+  }
+
+  getServices() {
+    this.servicesService.getAllServicesTradesPerson(this.p).subscribe( data => {
+      console.log("data : ", data);  
+      this.servicestradesperson= data;
     });
     
     this.categoryService.getAllCategories().subscribe(
@@ -56,10 +63,20 @@ export class ServicesListComponent implements OnInit {
         this.categories = data;
       }
     )
-   
+  }
+ 
+    /**
+   * Write code on Method
+   *
+   * @return response()
+   */
+  pageChangeEvent(event: number){
+      this.p = event;
+      this.getServices();
   }
 
- 
+  /** */
+
   addTradePerson(contentTradeperson : any) {
     this.modalService.open(contentTradeperson, { centered: true });
   }

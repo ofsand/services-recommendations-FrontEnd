@@ -50,3 +50,7 @@ input:focus {
         padding:80px 0px;
     }
 }
+
+.pagination-block {
+    bottom:5%
+}

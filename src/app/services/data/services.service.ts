@@ -22,8 +22,8 @@ export class ServicesService {
     return this.http.post(`${ADMIN_API_URL}/category/${idCategory}/tradesPerson`, tradeperson);
   }
 
-  getAllServicesTradesPerson() {
-    return this.http.get<ServicesTradesPerson[]>(`${API_URL}/services-tradesPerson`)
+  getAllServicesTradesPerson(page: number) {
+    return this.http.get<ServicesTradesPerson[]>(`${API_URL}/services-tradesPerson` + '?page=' + page)
   }
 
   deleteServiceTradePerson(idServiceTradePerson: number) {

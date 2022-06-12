@@ -120,7 +120,7 @@
         <!-- card of a service or -->
         <div class="container padTemplate " >
             <div class="col-md-10 offset-md-1"> 
-                <div *ngFor="let servicetradeperson of servicestradesperson" class="card text-start mb-4">
+                <div *ngFor="let servicetradeperson of servicestradesperson | paginate: { itemsPerPage: 3, currentPage: p, totalItems: total }" class="card text-start mb-4">
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-10">
@@ -144,6 +144,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="d-flex justify-content-center ">
+                <pagination-controls class="position-absolute pagination-block" (pageChange)="pageChangeEvent($event)"></pagination-controls>
             </div>
         </div>
 </div>
