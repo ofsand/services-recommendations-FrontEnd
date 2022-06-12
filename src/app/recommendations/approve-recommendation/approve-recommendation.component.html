@@ -1,0 +1,22 @@
+<div class="container mx-10 my-4">
+  <div class="alert alert-primary text-center" role="alert">
+    <h1 class="alert-heading">Welcome !</h1>
+    <h3>Here you can Approve or Decline users recommendations</h3>
+  </div>
+</div>
+
+<div class="container mx-20 my-3 d-none" id="approve-success">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 alert alert-success text-center p-2" role="alert">
+
+      <h4 class="alert-heading m-0">Recommendation approved successfully !</h4>
+    </div>
+  </div>
+</div>
+
+
+
+<app-recommendation-item
+  *ngFor="let recommendationElement of recommendations"
+  [recommendation]="recommendationElement"
+></app-recommendation-item>

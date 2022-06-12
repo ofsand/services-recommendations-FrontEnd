@@ -1,0 +1,11 @@
+
+.alert {
+  animation: autoHide 0s ease-in 4s forwards;
+}
+
+.add-recommendation {
+  font-family: Nunito, Montserrat, Quicksand, Avenir, serif !important;
+  font-size: 18px;
+  font-weight: bold;
+  color: #788ea8;
+}

@@ -1,6 +1,19 @@
 
-<button type="button" class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Recommendation</button>
+<div class="container mx-20 my-3 d-none" id="add-success">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 alert alert-success text-center p-2" role="alert">
 
+      <h4 class="alert-heading m-0">Your recommendation was added successfully and it will be approved soon !</h4>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-center">
+  <button type="button" class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#exampleModal" ng>Add Recommendation</button>
+
+
+</div>
 
 <!-- RECOMMENDATION ITEM -->
 <app-recommendation-item
@@ -18,14 +31,14 @@
     <form (ngSubmit)="addRecommendation()">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add a recommendation for this ser</h5>
+        <h5 class="modal-title add-recommendation" id="exampleModalLabel">Add a recommendation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="recipient-name" class="col-form-label">Email :</label>
+              <label for="recipient-name" class="col-form-label fw-bolder">Email</label>
               <input type="text"
                      class="form-control"
                      id="recipient-name"
@@ -35,7 +48,7 @@
               >
             </div>
             <div class="col-md-6 mb-3">
-              <label for="message-text" class="col-form-label">User Name :</label>
+              <label for="message-text" class="col-form-label fw-bolder">User Name</label>
               <input type="text"
                      class="form-control"
                      id="message-text"
@@ -45,20 +58,31 @@
               >
             </div>
           </div>
+        <hr>
           <div class="row">
-            <div class="col-md-12">
-              <label for="rec-number-stars" class="col-form-label">Number of stars:</label>
+            <div class="col-md-12 d-flex justify-content-around">
+              <label class="col-form-label fw-bolder">Service Rating</label>
+              <!--
               <input type="text"
                      class="form-control"
                      id="rec-number-stars"
                      name="numberStars"
                      required="required"
                      [(ngModel)]="recommendation.numberStars">
+              -->
+
+              <ngb-rating [max]="5" [(rate)]="recommendation.numberStars" [readonly]="false" style="text-align: center">
+                <ng-template let-fill="fill">
+                  <span class="star" [ngClass]="'color'+recommendation.numberStars"[class.filled]="fill === 100">&#9733;</span>
+                </ng-template>
+              </ngb-rating>
+
             </div>
           </div>
+        <hr>
           <div class="row">
             <div class="col-md-12">
-              <label for="rec-comment" class="col-form-label">Comment :</label>
+              <label for="rec-comment" class="col-form-label fw-bolder">Comment</label>
               <textarea
                 class="form-control"
                 id="rec-comment"
