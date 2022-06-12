@@ -21,8 +21,8 @@
                 </div>
                 <div class="col-sm-4">
                     <button type="submit" class="btn btn-success btn-sm" [disabled]="!formCategory.valid">
-                        <i class="bi bi-pencil-square" *ngIf="editMode"></i>
-                        <i class="bi bi-plus" *ngIf="!editMode"></i>
+                        <i class="fa fa-pencil-square-o" *ngIf="editMode"></i>
+                        <i class="fa fa-plus" *ngIf="!editMode"></i>
                     </button>
                 </div>
             </div>
@@ -37,13 +37,13 @@
                         <button 
                             class="btn btn-primary me-2"
                             (click)="onEdit(category)">
-                            <i class="bi bi-pencil-square"></i>                       
+                            <i class="fa fa-pencil-square-o"></i>                
                         </button>
                         <button 
                             class="btn btn-danger" 
                             [disabled]="category.serviceTradesPersons.length!==0" 
                             (click)="onDeleteCategory(category.idCategory)">
-                            <i class="bi bi-trash3"></i>
+                            <i class="fa fa-trash-o"></i>
                         </button>
                     </td>
                 </tr>

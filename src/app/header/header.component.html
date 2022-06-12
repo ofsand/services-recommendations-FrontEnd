@@ -9,22 +9,22 @@
           aria-controls="offcanvasExample"
           *ngIf="authenticationService.isUserLoggedIn()"
         >
-            <i class="bi bi-list"></i>
+          <i class="fa fa-bars"></i>
         </a>
         <a class="navbar-brand text-white fw-bold" routerLink="/">PROservices</a>
       </span>
 
       <span>
          <button
-           class="btn mx-1 rounded-circle" style="background-color: white; color: #6200EE;     padding: 4px 8px;"
+           class="btn mx-1 rounded-circle" style="background-color: white; color: #6200EE; padding: 1px 8px;"
            (click)="login()"
            *ngIf="!authenticationService.isUserLoggedIn()"
-         ><i class="bi bi-person-fill"></i></button>
+         ><i class="fa fa-user"></i></button>
         <button
-          class="btn btn-outline-info text-white"
+          class="btn text-white"
           (click)="logout()"
           *ngIf="authenticationService.isUserLoggedIn()"
-        >Logout</button>
+        ><i class="fa fa-sign-out" style="font-size: 22px"></i></button>
       </span>
     </div>
 </nav>
