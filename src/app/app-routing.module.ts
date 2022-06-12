@@ -7,11 +7,9 @@ import { RecommendationsComponent } from "./recommendations/recommendations.comp
 import { ServiceDetailsComponent } from "./services-list/service-details/service-details.component";
 import { ServicesListComponent } from "./services-list/services-list.component";
 import { TradePersonDetailsComponent } from "./services-list/trade-person-details/trade-person-details.component";
-import {RouteGuardService} from "./services/data/route-guard.service";
-import {
-  ApproveRecommendationComponent
-} from "./recommendations/approve-recommendation/approve-recommendation.component";
-import {PageNotFoundComponent} from "./shared/components/page-not-found/page-not-found.component";
+import { RouteGuardService } from "./services/data/route-guard.service";
+import { ApproveRecommendationComponent } from "./recommendations/approve-recommendation/approve-recommendation.component";
+import {PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 
  
@@ -21,15 +19,15 @@ import {PageNotFoundComponent} from "./shared/components/page-not-found/page-not
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'categories/admin', component: CategoriesComponent, canActivate: [RouteGuardService] },
-  { path: 'recommendations/admin', component: ApproveRecommendationComponent, canActivate: [RouteGuardService]},
-  { path: 'services/admin', component: ServicesListComponent, canActivate: [RouteGuardService]},
+  { path: 'admin/categories', component: CategoriesComponent, canActivate: [RouteGuardService] },
+  { path: 'admin/recommendations', component: ApproveRecommendationComponent, canActivate: [RouteGuardService]},
+  { path: 'admin/services', component: ServicesListComponent, canActivate: [RouteGuardService]},
   { path: 'services/:serviceTradesPersonId', component: RecommendationsComponent},
   { path: 'trades-persons/:serviceTradesPersonId', component: RecommendationsComponent },
-  {path: 'services', component: ServicesListComponent},
-  {path: 'service-details/:id', component: ServiceDetailsComponent},
-   {path: 'tradeperson-details/:id', component: TradePersonDetailsComponent},
-   {path: 'recommendations', component: RecommendationsComponent},
+  { path: 'services', component: ServicesListComponent},
+  { path: 'service-details/:id', component: ServiceDetailsComponent},
+  { path: 'tradeperson-details/:id', component: TradePersonDetailsComponent},
+  { path: 'recommendations', component: RecommendationsComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 

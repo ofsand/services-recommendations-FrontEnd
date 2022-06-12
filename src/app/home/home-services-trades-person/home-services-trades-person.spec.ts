@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ServiceTradePersonItemComponent } from './service-trade-person-item.component';
+import { HomeServiceTradePersonItemComponent } from './home-services-trades-person.component';
 
 describe('ServiceTradePersonItemComponent', () => {
-  let component: ServiceTradePersonItemComponent;
-  let fixture: ComponentFixture<ServiceTradePersonItemComponent>;
+  let component: HomeServiceTradePersonItemComponent;
+  let fixture: ComponentFixture<HomeServiceTradePersonItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ServiceTradePersonItemComponent ]
+      declarations: [ HomeServiceTradePersonItemComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ServiceTradePersonItemComponent);
+    fixture = TestBed.createComponent(HomeServiceTradePersonItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
