@@ -8,17 +8,32 @@
 
     </div>
    
-    <div class="row">
+    <div class="row"  *ngIf="services.length !== 0; else dataNotFound">
         <div class="container" *ngFor="let service of services" class="col-md-4 box">
             <div class="card card-box">
                 <div class="card-body">
                     <h3>{{service.title}}</h3>
                     <p>{{service.description}}</p>
-                    <button class="btn btn-primary" (click)="onConsult(service.id, service.type)"
+                    <button 
+                        style="background-color: #6200EE !important;"
+                        class="btn btn-primary" 
+                        (click)="onConsult(service.id, service.type)"
                     
                     >Consulter</button>
                 </div>
             </div>
         </div>
     </div>
+    <ng-template #dataNotFound>
+        <div style="max-width: 300px; max-height: 300px" class="m-auto">
+            <div class="row align-items-center m-auto">
+                <div class="col-6">
+                    <img src="./assets/images/data-not-found.png" class="img-fluid" />
+                </div>
+                <div class="col-6" style="color: #8A69BC;">
+                    <p class="fw-bold fs-6">Data not found</p>
+                </div>
+            </div>
+        </div>
+    </ng-template>
 </div>

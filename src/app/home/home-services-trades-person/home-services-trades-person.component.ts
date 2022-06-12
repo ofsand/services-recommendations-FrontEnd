@@ -24,16 +24,15 @@ export class HomeServiceTradePersonItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-     this.service.getAllServiceTradePerson('').subscribe(
+    this.service.getAllServiceTradePerson('').subscribe(
      (data) => {
         console.log(data);
         this.services = data;
-    }
-  )
-
-  this.service.changedListOfSTD$.subscribe((value) => {
-    this.services = value;
-  });
+      }
+    )
+    this.service.changedListOfSTD$.subscribe((value) => {
+      this.services = value;
+    });
   }
 
   onConsult(id:number, type : string) {
