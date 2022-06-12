@@ -27,7 +27,7 @@ export class ServicesListComponent implements OnInit {
     email: new FormControl(null, Validators.required),
     title: new FormControl(''),
     location: new FormControl(''),
-    phone: new FormControl(''),
+    phoneNumber: new FormControl(''),
     description: new FormControl(''),
   });
 
@@ -35,7 +35,7 @@ export class ServicesListComponent implements OnInit {
     email: new FormControl(null, Validators.required),
     title: new FormControl(''),
     location: new FormControl(''),
-    phone: new FormControl(''),
+    phoneNumber: new FormControl(''),
     firstname: new FormControl(''),
     lastname: new FormControl(''),
     domain: new FormControl(''),
@@ -73,7 +73,7 @@ export class ServicesListComponent implements OnInit {
       (data: any) => {
         this.servicestradesperson = this.servicestradesperson.filter(servicetradeperson => (servicetradeperson.id !== data.id))
         this.servicestradesperson.push(data)
-      }
+      } 
     )
   
   }
