@@ -7,17 +7,18 @@
         </div>
 
     </div>
-
-    <div class="row ">
+   
+    <div class="row">
         <div class="container" *ngFor="let service of services" class="col-md-4 box">
             <div class="card card-box">
                 <div class="card-body">
                     <h3>{{service.title}}</h3>
                     <p>{{service.description}}</p>
-                    <button class="btn btn-primary"  (click)="onConsult(service.id)">Consulter</button>
+                    <button class="btn btn-primary" (click)="onConsult(service.id, service.type)"
+                    
+                    >Consulter</button>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

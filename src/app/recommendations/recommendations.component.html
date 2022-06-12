@@ -1,5 +1,5 @@
 
-<div class="container mx-20 my-3" id="add-success" *ngIf="addedSuccessfully">
+<div class="container mx-20 my-3 d-none" id="add-success">
   <div class="row">
     <div class="col-md-4 offset-md-4 alert alert-success text-center p-2" role="alert">
 
@@ -31,7 +31,7 @@
     <form (ngSubmit)="addRecommendation()">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add a recommendation for this ser</h5>
+        <h5 class="modal-title add-recommendation" id="exampleModalLabel">Add a recommendation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

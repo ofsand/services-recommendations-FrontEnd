@@ -7,11 +7,11 @@ export interface ITradePerson {
     email: string,
     phoneNumber: string,
     location: string,
-    firstname : string,
-    lastname : string,
+    firstName : string,
+    lastName : string,
     domain : string,
     speciality : string,
-    adress : string,
+    address : string,
     description : string,
     category : Category
 }

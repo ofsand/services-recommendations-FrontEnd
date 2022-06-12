@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.authenticate(this.user).subscribe(
       success => {
         console.log(success);
-        this.router.navigate(['recommendations', this.user.username]);
+        this.router.navigate(['/admin', 'recommendations']);
         this.invalidLogin = false;
       }, error => {
         console.log(error)

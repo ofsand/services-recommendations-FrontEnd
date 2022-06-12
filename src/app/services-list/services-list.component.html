@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="row" >
-                    <div class="col-xs-3 pad" >
+                    <div class="col-x.s-3 pad" >
                         <input id="location" class="form-control" type="text" formControlName="location" placeholder="Location" />
                     </div>
                     <div class="col-xs-4 pad">
@@ -41,7 +41,7 @@
         </div>
       </ng-template>
     </div>
-    
+
       <ng-template #contentTradeperson let-modal>
         <div class="modal-header">
             <h4 class="modal-title">Add PersonTrade </h4>
@@ -103,16 +103,16 @@
                 </form>
           </div>
       </ng-template>
-    
+
     <div class="padButton">
         <button class="btn btn-outline-primary mb-2 me-2 button" (click)="addService(contentService)">Add a service</button>
         <button class="btn btn-outline-primary mb-2 me-2 button" (click)="addTradePerson(contentTradeperson)">Add a tradePerson</button>
     </div>
-    
-    
+
+
     <!-- card of a service or -->
     <div class="container padTemplate " >
-        <div class="col-md-8 offset-md-2"> 
+        <div class="col-md-8 offset-md-2">
             <div *ngFor="let servicetradeperson of servicestradesperson" class="card text-start mb-2">
                 <div class="card-body">
                     <div class="row align-items-center">
@@ -121,14 +121,14 @@
                             <p class="card-text">{{servicetradeperson.description}}</p>
                         </div>
                         <div class="col-2 text-end">
-                            <button 
-                                class="btn btn-danger colr" 
+                            <button
+                                class="btn btn-danger colr"
                                 (click)="onDelete(servicetradeperson.id)">
                                 <i class="bi bi-trash3"></i>
                             </button>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <div class="card-footer text-muted  bg-info colr" >
                     <div class="row text-white" >
                         <span class="col-md-4" id = "email"><i class="bi bi-envelope"></i> {{servicetradeperson.email}}</span>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Recommendation } from "../models/Recommendation.model";
 import {RecommendationDataService} from "../services/data/recommendation-data.service";
@@ -14,7 +14,7 @@ export class RecommendationsComponent implements OnInit {
 
   recommendations: Recommendation[];
   recommendation: Recommendation;
-  serviceTradesPersonId: number = 1;
+  @Input()serviceTradesPersonId: number;
   counter: number = 0;
   addedSuccessfully: boolean;
 
@@ -31,8 +31,8 @@ export class RecommendationsComponent implements OnInit {
         email: "jaouad@gmail.com",
         username: "jaouad"
       } as User);
-
-    this.serviceTradesPersonId = this.router.snapshot.params["serviceTradesPersonId"];
+console.log(this.serviceTradesPersonId)
+   // this.serviceTradesPersonId = this.router.snapshot.params["serviceTradesPersonId"];
     // console.log(this.serviceTradesPersonId)
     this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
 
@@ -65,13 +65,15 @@ export class RecommendationsComponent implements OnInit {
     this.recommendationData.addRecommendation(this.serviceTradesPersonId, this.recommendation).subscribe(
       success => {
         console.log(success);
-        this.addedSuccessfully = true;
 
-        setTimeout(() => {
-          // @ts-ignore
-          document.getElementById('add-success').classList.add('d-none');
-        }, 5000);
+        const divSuccessAlert = document.getElementById('add-success') as HTMLElement | null;
 
+        if (divSuccessAlert != null) {
+          divSuccessAlert.classList.remove('d-none')
+          setTimeout(() => {
+            divSuccessAlert.classList.add('d-none');
+          }, 5000);
+        }
 
         this.refreshRecommendations(this.serviceTradesPersonId)
       }, error => {

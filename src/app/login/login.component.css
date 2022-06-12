@@ -10,7 +10,8 @@
 }
 
 .bg-login{
-    background: linear-gradient(to top, #6200ee61, #30303069), url(Image-2.jpg);
+    background: linear-gradient(to top, #6200ee61, #30303069), 
+        url("/assets/images/login-background.jpg");
     width: 100%;
     height: calc(100vh - 65px);
     background-size: 100%;
