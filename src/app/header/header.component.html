@@ -11,7 +11,7 @@
         >
             <i class="bi bi-list" style="font-size: 25px; margin-top: 5px;"></i>
         </a>
-        <a class="navbar-brand text-white fw-bold" routerLink="/">PROservices</a>
+        <a class="navbar-brand text-white fw-bold " routerLink="/"><span class="title">PROservices</span></a>
       </span>
 
       <span>
@@ -19,12 +19,14 @@
            class="btn mx-1 rounded-circle secondary-color-text"
            (click)="login()"
            *ngIf="!authenticationService.isUserLoggedIn()"
-         ><i class="bi bi-person-fill"></i></button>
+         ><i class="bi bi-person-fill btn-login"></i></button>
         <button
-          class="btn btn-outline-info text-white"
+          class="btn text-white logout-btn"
           (click)="logout()"
           *ngIf="authenticationService.isUserLoggedIn()"
-        >Logout</button>
+        >
+        Logout <i class="bi bi-door-open-fill"></i>
+        </button>
       </span>
     </div>
 </nav>

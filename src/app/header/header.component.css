@@ -16,10 +16,25 @@ nav {
         width: 100%;
     }
 }
+
+
+.title:hover{
+    color: #205ebb;
+}
+
 .rounded-circle{
     background-color: white;
     padding: 4px 8px;
 }
+
+.rounded-circle:hover{
+    background-color: #225197;
+}
+
+.btn-login:hover{
+    color: white;
+}
+
 .list-group-item.active{
     color: #fff;
     background-color: #225197;
@@ -48,4 +63,10 @@ nav {
 }
 .offcanvas{
     background-color: #1b3856;
+}
+.logout-btn{
+    border-color: white;
+}
+.logout-btn:hover{
+    background-color: #225197;
 }
