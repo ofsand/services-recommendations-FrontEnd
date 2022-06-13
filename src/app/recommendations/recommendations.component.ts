@@ -27,12 +27,12 @@ export class RecommendationsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.recommendation = new Recommendation(this.counter, 'comment', false, 0, {
-        email: "jaouad@gmail.com",
-        username: "jaouad"
+    this.recommendation = new Recommendation(this.counter, '', false, 0, {
+        email: "",
+        username: ""
       } as User);
-console.log(this.serviceTradesPersonId)
-   // this.serviceTradesPersonId = this.router.snapshot.params["serviceTradesPersonId"];
+    console.log(this.serviceTradesPersonId)
+    // this.serviceTradesPersonId = this.router.snapshot.params["serviceTradesPersonId"];
     // console.log(this.serviceTradesPersonId)
     this.getRecommendationsByServiceTradesPerson(this.serviceTradesPersonId);
 
