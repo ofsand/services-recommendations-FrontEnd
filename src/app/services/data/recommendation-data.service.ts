@@ -21,14 +21,14 @@ export class RecommendationDataService {
   }
 
   getDisapprovedRecommendations() {
-    return this.httpClient.get<Recommendation[]>(`${environment.API_URL}/recommendations/approved=false`);
+    return this.httpClient.get<Recommendation[]>(`${environment.ADMIN_API_URL}/recommendations/approved=false`);
   }
 
   approve(recommendationId: number) {
-    return this.httpClient.put(`${environment.API_URL}/recommendations/${recommendationId}/approve`, true);
+    return this.httpClient.put(`${environment.ADMIN_API_URL}/recommendations/${recommendationId}/approve`, true);
   }
 
   decline(recommendationId: number) {
-    return this.httpClient.put(`${environment.API_URL}/recommendations/${recommendationId}/decline`, false);
+    return this.httpClient.put(`${environment.ADMIN_API_URL}/recommendations/${recommendationId}/decline`, false);
   }
 }
