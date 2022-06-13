@@ -1,24 +1,52 @@
 .bg-landing{
-    background: linear-gradient(to top, #6200ee40, #7f7f7f29), 
-    url("/assets/images/landing-background.png");
+    background: linear-gradient(to top,  #000000c2, #000000c7), url(/assets/images/rm309-adj-05.jpg);
     width: 100%;
-    height: calc(90vh - 65px);
-    background-size: cover;
+    height: calc(80vh - 65px);
     background-repeat: no-repeat;
     position:relative;
-    background-position: center;
+    background-size: cover;
 }
 
 .proservices{
-    color:blue;
-    margin-top: 60px;
+    margin-top: 50px;
+    font-size: 1.1em;
     font-weight: bold;
 }
 
+@media only screen and (max-width: 1366px) {
+    .proservices{
+        margin-top: 40px;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+}
 #landing-expresion{
-    size:200px;
-    font-size: 2.5em;
+    size: 200px;
+    font-size: 2.8em;
     line-height: 1.5;
-    padding-top: 50px;
-    bottom: 38% !important;
+    left: 10%;
+    width: 40%;
+    padding: 0 50px;
+    top: 260px;
+}
+@media only screen and (max-width: 1366px) {
+    #landing-expresion{
+        size: 200px;
+        font-size: 2.2em;
+        line-height: 1.5;
+        left: 10%;
+        width: 40%;
+        padding: 0 50px;
+        top: 130px;
+    }
+}
+.png-home-img{
+    background-image: url(/assets/images/handsome-man-with-laptop.png);
+    height: 100%;
+    background-size: cover;
+    right: 10%;
+    width: 40%;
+    padding: 0 50px;
+    top: 25px;
+    filter: drop-shadow(0px 0px 10px #ffffff48);
 }

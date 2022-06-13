@@ -10,18 +10,14 @@
   </div>
 </div>
 
+<div class="admin-page">
 
-<div class="container">
-  <div class="col-md-8 offset-md-2">
 
-    <button type="button" 
-      style="background-color: #6200EE !important;"
-      class="btn btn-success" 
-      data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Recommender
-    </button>
+<div class="text-center">
+
+    <button type="button" class="btn primary-color-background text-white m-3" data-bs-toggle="modal" data-bs-target="#exampleModal" >Make a Recommendation</button>
   </div>
-</div>
+
 
 <!-- RECOMMENDATION ITEM -->
 <app-recommendation-item
@@ -34,12 +30,12 @@
 
 
 <!-- Modal for adding a new recommendation -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <form (ngSubmit)="addRecommendation()">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title add-recommendation" id="exampleModalLabel">Add a recommendation</h5>
+        <h4 class="modal-title" id="exampleModalLabel">Please Fill in the form bellow !</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -92,6 +88,7 @@
             <div class="col-md-12">
               <label for="rec-comment" class="col-form-label fw-bolder">Comment</label>
               <textarea
+                rows="4"
                 class="form-control"
                 id="rec-comment"
                 name="comment"
@@ -101,12 +98,13 @@
             </div>
           </div>
 
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-cancel secondary-color-background text-white" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-add primary-color-background text-white" data-bs-dismiss="modal">Confirm</button>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Confirm</button>
-      </div>
+      </form>
     </div>
-    </form>
   </div>
 </div>

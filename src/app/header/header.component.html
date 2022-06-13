@@ -9,29 +9,30 @@
           aria-controls="offcanvasExample"
           *ngIf="authenticationService.isUserLoggedIn()"
         >
-          <i class="fa fa-bars"></i>
-        </a>
-        <a class="navbar-brand text-white fw-bold" routerLink="/">PROservices</a>
-      </span>
+        <i class="bi bi-list" style="font-size: 25px; margin-top: 5px;"></i>
+      </a>
+      <a class="navbar-brand text-white fw-bold " routerLink="/"><span class="title">PROservices</span></a>
+    </span>
 
       <span>
          <button
-           class="btn mx-1 rounded-circle" style="background-color: white; color: #6200EE; padding: 1px 8px;"
+         class="btn mx-1 rounded-circle secondary-color-text"
            (click)="login()"
            *ngIf="!authenticationService.isUserLoggedIn()"
-         ><i class="fa fa-user"></i></button>
+           ><i class="bi bi-person-fill btn-login"></i></button>
         <button
-          class="btn text-white"
+        class="btn text-white logout-btn"
           (click)="logout()"
           *ngIf="authenticationService.isUserLoggedIn()"
-        ><i class="fa fa-sign-out" style="font-size: 22px"></i></button>
+        >        Logout <i class="bi bi-door-open-fill"></i>
+      </button>
       </span>
     </div>
 </nav>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-        <h3 class="offcanvas-title" id="offcanvasExampleLabel" style="color: white;">PROservices</h3>
+      <h3 class="offcanvas-title fw-bold " id="offcanvasExampleLabel" style="color: white;">PROservices</h3>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -58,5 +59,8 @@
                 Services & Trades Person
             </li>
         </ul>
+    </div>
+    <div class="offcanvas-footer text-center primary-color-background py-2 fw-bold text-white">
+      By Team CHAKRA
     </div>
 </div>

@@ -4,7 +4,7 @@
             <form class="form-container text-center" (ngSubmit)="authenticate()">
                 <!-- Email input -->
 
-                <label class="form-label" for="form2Example1">Please Login using your Pseudo and Password.</label>
+                <label class="form-label text-white mb-4" for="form2Example1">Please Login using your Pseudo and Password.</label>
                 <div class="form-outline mb-4">
                     <input
                       type="email"
@@ -31,8 +31,9 @@
                     <label class="form-label text-danger" for="form2Example1" *ngIf="invalidLogin">Wrong Pseudo or Password !</label>
                 </div>
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4" style="background-color: #6200EE !important;">Sign in</button>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
             </form>
         </div>
     </div>
 </div>
+<app-footer></app-footer>

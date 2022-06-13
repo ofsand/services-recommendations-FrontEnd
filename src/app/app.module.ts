@@ -22,6 +22,7 @@ import { TradePersonDetailsComponent } from './services-list/trade-person-detail
 import { ServiceDetailsComponent } from './services-list/service-details/service-details.component';
 import { ApproveRecommendationComponent } from './recommendations/approve-recommendation/approve-recommendation.component';
 import { HttpInterceptorJwtAuthService } from './services/interceptors/http-interceptor-jwt-auth.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HttpInterceptorJwtAuthService } from './services/interceptors/http-inte
     HomeServiceTradePersonItemComponent,
     ServiceDetailsComponent,
     TradePersonDetailsComponent,
-    ApproveRecommendationComponent
+    ApproveRecommendationComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

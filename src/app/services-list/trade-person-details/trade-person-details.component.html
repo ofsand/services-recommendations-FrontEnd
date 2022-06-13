@@ -1,6 +1,7 @@
  <!-- card of a service or -->
- <div class="container padTemplate " style="padding-top:20px ;" >
-    <div class="col-md-8 offset-md-2"> 
+ <div class="service-details-page">
+    <div class="container padTemplate">
+        <div class="col-md-8 offset-md-2"> 
         <div class="card text-start mb-2">
             <div class="card-body">
                 <div class="row align-items-center">
@@ -15,14 +16,15 @@
                    
                 </div>
             </div> 
-            <div class="card-footer text-muted" style="background-color: #F7F7F7;" >
-                <div class="row" >
+            <div class="card-footer text-muted colr secondary-color-background" >
+                <div class="row text-white" >
                     <span class="col-md-4" id = "email"><i class="bi bi-envelope"></i> {{tradePersonItem.email}}</span>
                     <span class="col-md-4" id ><i class="bi bi-phone"></i> {{tradePersonItem.phoneNumber}}</span>
-                    <span class="col-md-4"><i class="bi bi-geo-alt"></i> {{tradePersonItem.address}}</span>
+                    <!-- <span class="col-md-4"><i class="bi bi-geo-alt"></i> {{tradePersonItem.address}}</span> -->
                 </div>
             </div>
         </div>
     </div>
 </div>
 <app-recommendations [serviceTradesPersonId]="tradePersonItem.id"></app-recommendations>
+</div>
