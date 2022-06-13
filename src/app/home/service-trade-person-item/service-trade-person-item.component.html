@@ -1,0 +1,25 @@
+<div class="container explore-home">
+    <div class="row">
+        <div class="col mt-25 mb-30 justify-content-center">
+            <h1 class=" d-flex align-items-center justify-content-center h-100 mb-5">
+            Explore
+            </h1>
+        </div>
+
+    </div>
+
+    <div class="row ">
+        <div class="container" *ngFor="let service of services" class="col-md-4 box">
+            <div class="card card-box">
+                <div class="card-body">
+                    <h3>{{service.title}}</h3>
+                    <p>{{service.description}}</p>
+                    <button class="btn secondary-color-background text-white" (click)="onConsult(service.id, service.type)"
+                    
+                    >Consulter</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

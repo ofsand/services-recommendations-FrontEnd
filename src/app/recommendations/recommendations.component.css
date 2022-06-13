@@ -3,9 +3,16 @@
   animation: autoHide 0s ease-in 4s forwards;
 }
 
-.add-recommendation {
-  font-family: Nunito, Montserrat, Quicksand, Avenir, serif !important;
-  font-size: 18px;
-  font-weight: bold;
-  color: #788ea8;
+.modal-dialog {
+  max-width: 660px;
+  margin: auto;
+  padding-top: calc(50vh - 253px);
+}
+
+.btn-add:hover{
+  background-color: #004080 !important;
+}
+
+.btn-cancel:hover{
+  background-color: #377ee9 !important;
 }
