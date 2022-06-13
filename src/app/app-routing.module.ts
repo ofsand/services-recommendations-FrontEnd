@@ -12,9 +12,9 @@ import { ApproveRecommendationComponent } from "./recommendations/approve-recomm
 import {PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 
- 
 
-   
+
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,10 +24,8 @@ const routes: Routes = [
   { path: 'admin/services', component: ServicesListComponent, canActivate: [RouteGuardService]},
   { path: 'services/:serviceTradesPersonId', component: RecommendationsComponent},
   { path: 'trades-persons/:serviceTradesPersonId', component: RecommendationsComponent },
-  { path: 'services', component: ServicesListComponent},
   { path: 'service-details/:id', component: ServiceDetailsComponent},
   { path: 'tradeperson-details/:id', component: TradePersonDetailsComponent},
-  { path: 'recommendations', component: RecommendationsComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
